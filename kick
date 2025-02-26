@@ -1,3 +1,7 @@
+setreadonly(client, false);
+client.enableautoexec = nil
+setreadonly(client, true);
+
 local Outdated = Instance.new("ScreenGui")
 local OTFrame = Instance.new("Frame")
 local Logo = Instance.new("ImageLabel")
