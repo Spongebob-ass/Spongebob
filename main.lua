@@ -15,11 +15,6 @@ local LogService = game:GetService("LogService")
 
 local riftTabs = {}
 
-setreadonly(client, false);
-client.enableautoexec()
-setreadonly(client, true);
-
-repeat task.wait() until game:IsLoaded()
 local Rift = Instance.new("ScreenGui")
 local MainFrame = Instance.new("Frame")
 local UICorner = Instance.new("UICorner")
