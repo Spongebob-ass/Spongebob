@@ -4,8 +4,8 @@ end
 
 makefolder('riftscripts')
 writefile('riftscripts/Fly V3', 'loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()')
-writefile('riftscripts/Owl Hub', 'loadstring(game:HttpGet("https://raw.githubusercontent.com/CriShoux/OwlHub/master/OwlHub.txt"))();')
-writefile('riftscripts/Dex Explorer', 'loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/DEX-Explorer/refs/heads/main/Mobile.lua"))()')
+writefile('riftscripts/Redz Hub', 'loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))()')
+writefile('riftscripts/Infinite Yield', 'loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()')
 writefile('riftscripts/UNC Check', 'loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/refs/heads/main/UNCCheckEnv.lua"))()')
 
 _G.RiftLoaded = true
