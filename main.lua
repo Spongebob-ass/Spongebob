@@ -489,7 +489,7 @@ DiscordButton.Text = "COPY LINK"
 DiscordButton.TextColor3 = Color3.new(1, 1, 1)
 DiscordButton.TextSize = 14
 DiscordButton.MouseButton1Click:Connect(function()
-    setclipboard('https://myelin.lol/discord')
+    setclipboard('https://discord.gg/qHYpUczaPD')
 end)
 
 UICorner_8.Parent = DiscordButton
