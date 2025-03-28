@@ -4,7 +4,7 @@ end
 
 makefolder('riftscripts')
 writefile('riftscripts/Fly V3', 'loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()')
-writefile('riftscripts/Redz Hub', 'loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))()')
+writefile('riftscripts/Redz Hub', 'loadstring(game:HttpGet("https://pastefy.app/ACOX6D6h/raw"))()')
 writefile('riftscripts/Infinite Yield', 'loadstring(game:HttpGet("https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source"))()')
 writefile('riftscripts/UNC Check', 'loadstring(game:HttpGet("https://raw.githubusercontent.com/unified-naming-convention/NamingStandard/refs/heads/main/UNCCheckEnv.lua"))()')
 
