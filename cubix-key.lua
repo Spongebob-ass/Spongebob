@@ -117,54 +117,66 @@ local service = KeyGuardLibrary.getService()
 if isfile("CubixKey.lua") and (KeyGuardLibrary.validateDefaultKey(readfile("CubixKey.lua")) == truedata or KeyGuardLibrary.validatePremiumKey(readfile("CubixKey.lua")) == truedata) then
 	loadstring(game:HttpGet("https://raw.githubusercontent.com/nathzzi/Rift-Android/refs/heads/main/scripts/cubix.lua"))()
 else
-	local KeySystemGUI = Instance.new("ScreenGui")
-	local MainFrame = Instance.new("Frame")
+	local CubixKeySystem = Instance.new("ScreenGui")
+	local Main = Instance.new("Frame")
 	local UICorner = Instance.new("UICorner")
+	local KeyLabel = Instance.new("TextLabel")
+	local Line = Instance.new("Frame")
 	local TextBoxFrame = Instance.new("Frame")
 	local UICorner_2 = Instance.new("UICorner")
 	local TextBox = Instance.new("TextBox")
-	local Title = Instance.new("Frame")
+	local ValidateKeyFrame = Instance.new("Frame")
 	local UICorner_3 = Instance.new("UICorner")
-	local TitleLogo = Instance.new("ImageLabel")
-	local TitleText = Instance.new("TextLabel")
-	local CheckKeyFrame = Instance.new("Frame")
-	local UICorner_4 = Instance.new("UICorner")
-	local CKeyImage = Instance.new("ImageLabel")
-	local CheckKey = Instance.new("TextButton")
+	local ValidateKeyButton = Instance.new("TextButton")
 	local GetKeyFrame = Instance.new("Frame")
-	local UICorner_5 = Instance.new("UICorner")
-	local GKeyImage = Instance.new("ImageLabel")
-	local GetKey = Instance.new("TextButton")
+	local UICorner_4 = Instance.new("UICorner")
+	local GetKeyButton = Instance.new("TextButton")
 	local Note = Instance.new("TextLabel")
-	local Exit = Instance.new("ImageButton")
 
-	KeySystemGUI.Name = "KeySystemGUI"
-	KeySystemGUI.Parent = game:GetService("CoreGui")
-	KeySystemGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-	KeySystemGUI.ResetOnSpawn = false
+	CubixKeySystem.Name = "CubixKeySystem"
+	CubixKeySystem.Parent = gethui()
+	CubixKeySystem.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-	MainFrame.Name = "MainFrame"
-	MainFrame.Parent = KeySystemGUI
-	MainFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
-	MainFrame.BackgroundTransparency = 0.200
-	MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	MainFrame.BorderSizePixel = 0
-	MainFrame.Position = UDim2.new(0.262762934, 0, 0.233340457, 0)
-	MainFrame.Size = UDim2.new(0, 368, 0, 204)
-	MainFrame.Active = true
-	MainFrame.Draggable = true
+	Main.Name = "Main"
+	Main.Parent = CubixKeySystem
+	Main.BackgroundColor3 = Color3.fromRGB(16, 16, 16)
+	Main.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Main.BorderSizePixel = 0
+	Main.Position = UDim2.new(0.328551471, 0, 0.247542888, 0)
+	Main.Size = UDim2.new(0, 304, 0, 160)
 
-	UICorner.Parent = MainFrame
+	UICorner.Parent = Main
+
+	KeyLabel.Name = "KeyLabel"
+	KeyLabel.Parent = Main
+	KeyLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	KeyLabel.BackgroundTransparency = 1.000
+	KeyLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	KeyLabel.BorderSizePixel = 0
+	KeyLabel.Position = UDim2.new(0.171052635, 0, 0, 0)
+	KeyLabel.Size = UDim2.new(0, 200, 0, 22)
+	KeyLabel.Font = Enum.Font.Ubuntu
+	KeyLabel.Text = "Cubix - Key System"
+	KeyLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+	KeyLabel.TextSize = 11.000
+
+	Line.Name = "Line"
+	Line.Parent = Main
+	Line.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Line.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Line.BorderSizePixel = 0
+	Line.Position = UDim2.new(0.02631584, 0, 0.134199128, 0)
+	Line.Size = UDim2.new(0, 289, 0, 1)
 
 	TextBoxFrame.Name = "TextBoxFrame"
-	TextBoxFrame.Parent = MainFrame
-	TextBoxFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
-	TextBoxFrame.BackgroundTransparency = 0.200
+	TextBoxFrame.Parent = Main
+	TextBoxFrame.BackgroundColor3 = Color3.fromRGB(29, 29, 29)
 	TextBoxFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	TextBoxFrame.BorderSizePixel = 0
-	TextBoxFrame.Position = UDim2.new(0.0565198809, 0, 0.301967919, 0)
-	TextBoxFrame.Size = UDim2.new(0, 328, 0, 40)
+	TextBoxFrame.Position = UDim2.new(0.02631584, 0, 0.375884533, 0)
+	TextBoxFrame.Size = UDim2.new(0, 289, 0, 25)
 
+	UICorner_2.CornerRadius = UDim.new(0, 5)
 	UICorner_2.Parent = TextBoxFrame
 
 	TextBox.Parent = TextBoxFrame
@@ -172,175 +184,99 @@ else
 	TextBox.BackgroundTransparency = 1.000
 	TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
 	TextBox.BorderSizePixel = 0
-	TextBox.Position = UDim2.new(-0.00304878037, 0, 0, 0)
-	TextBox.Size = UDim2.new(0, 328, 0, 40)
+	TextBox.Position = UDim2.new(-0.00346015487, 0, 0, 0)
+	TextBox.Size = UDim2.new(0, 288, 0, 25)
 	TextBox.ClearTextOnFocus = false
 	TextBox.Font = Enum.Font.Ubuntu
-	TextBox.PlaceholderText = "Enter your key here.."
+	TextBox.PlaceholderText = "Place key here"
 	TextBox.Text = ""
 	TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
-	TextBox.TextSize = 11.000
+	TextBox.TextSize = 10.000
 	TextBox.TextWrapped = true
 
-	Title.Name = "Title"
-	Title.Parent = MainFrame
-	Title.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
-	Title.BackgroundTransparency = 0.200
-	Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Title.BorderSizePixel = 0
-	Title.Position = UDim2.new(0.0565198809, 0, 0.0666738003, 0)
-	Title.Size = UDim2.new(0, 100, 0, 29)
+	ValidateKeyFrame.Name = "ValidateKeyFrame"
+	ValidateKeyFrame.Parent = Main
+	ValidateKeyFrame.BackgroundColor3 = Color3.fromRGB(98, 1, 138)
+	ValidateKeyFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	ValidateKeyFrame.BorderSizePixel = 0
+	ValidateKeyFrame.Position = UDim2.new(0.0263158903, 0, 0.668500066, 0)
+	ValidateKeyFrame.Size = UDim2.new(0, 125, 0, 35)
 
-	UICorner_3.Parent = Title
+	UICorner_3.CornerRadius = UDim.new(0, 5)
+	UICorner_3.Parent = ValidateKeyFrame
 
-	TitleLogo.Name = "TitleLogo"
-	TitleLogo.Parent = Title
-	TitleLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	TitleLogo.BackgroundTransparency = 1.000
-	TitleLogo.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	TitleLogo.BorderSizePixel = 0
-	TitleLogo.Position = UDim2.new(0, 0, -0.137931034, 0)
-	TitleLogo.Size = UDim2.new(0, 37, 0, 37)
-	TitleLogo.Image = ""
-
-	TitleText.Name = "TitleText"
-	TitleText.Parent = Title
-	TitleText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	TitleText.BackgroundTransparency = 1.000
-	TitleText.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	TitleText.BorderSizePixel = 0
-	TitleText.Position = UDim2.new(0.0784783959, 0, 0, 0)
-	TitleText.Size = UDim2.new(0, 92, 0, 29)
-	TitleText.Font = Enum.Font.Ubuntu
-	TitleText.Text = "Key System"
-	TitleText.TextColor3 = Color3.fromRGB(255, 255, 255)
-	TitleText.TextSize = 9.000
-	TitleText.TextStrokeTransparency = 33.000
-	TitleText.TextWrapped = true
-
-	CheckKeyFrame.Name = "CheckKeyFrame"
-	CheckKeyFrame.Parent = MainFrame
-	CheckKeyFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
-	CheckKeyFrame.BackgroundTransparency = 0.200
-	CheckKeyFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	CheckKeyFrame.BorderSizePixel = 0
-	CheckKeyFrame.Position = UDim2.new(0.0565198809, 0, 0.581379771, 0)
-	CheckKeyFrame.Size = UDim2.new(0, 123, 0, 40)
-
-	UICorner_4.Parent = CheckKeyFrame
-
-	CKeyImage.Name = "CKeyImage"
-	CKeyImage.Parent = CheckKeyFrame
-	CKeyImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	CKeyImage.BackgroundTransparency = 1.000
-	CKeyImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	CKeyImage.BorderSizePixel = 0
-	CKeyImage.Position = UDim2.new(0.065040648, 0, 0.224999994, 0)
-	CKeyImage.Size = UDim2.new(0, 22, 0, 22)
-	CKeyImage.Image = "rbxassetid://99876185755922"
-
-	CheckKey.Name = "CheckKey"
-	CheckKey.Parent = CheckKeyFrame
-	CheckKey.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	CheckKey.BackgroundTransparency = 1.000
-	CheckKey.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	CheckKey.BorderSizePixel = 0
-	CheckKey.Position = UDim2.new(0.0638035685, 0, 0, 0)
-	CheckKey.Size = UDim2.new(0, 115, 0, 40)
-	CheckKey.Font = Enum.Font.Ubuntu
-	CheckKey.Text = "Check Key"
-	CheckKey.TextColor3 = Color3.fromRGB(253, 253, 253)
-	CheckKey.TextSize = 14.000
-
-	GetKeyFrame.Name = "GetKeyFrame"
-	GetKeyFrame.Parent = MainFrame
-	GetKeyFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
-	GetKeyFrame.BackgroundTransparency = 0.200
-	GetKeyFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	GetKeyFrame.BorderSizePixel = 0
-	GetKeyFrame.Position = UDim2.new(0.613585114, 0, 0.581379771, 0)
-	GetKeyFrame.Size = UDim2.new(0, 123, 0, 40)
-
-	UICorner_5.Parent = GetKeyFrame
-
-	GKeyImage.Name = "GKeyImage"
-	GKeyImage.Parent = GetKeyFrame
-	GKeyImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	GKeyImage.BackgroundTransparency = 1.000
-	GKeyImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	GKeyImage.BorderSizePixel = 0
-	GKeyImage.Position = UDim2.new(0.065040648, 0, 0.224999994, 0)
-	GKeyImage.Size = UDim2.new(0, 24, 0, 22)
-	GKeyImage.Image = "rbxassetid://121986274886669"
-
-	GetKey.Name = "GetKey"
-	GetKey.Parent = GetKeyFrame
-	GetKey.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	GetKey.BackgroundTransparency = 1.000
-	GetKey.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	GetKey.BorderSizePixel = 0
-	GetKey.Position = UDim2.new(0.0638035685, 0, 0, 0)
-	GetKey.Size = UDim2.new(0, 115, 0, 40)
-	GetKey.Font = Enum.Font.Ubuntu
-	GetKey.Text = "Get Key"
-	GetKey.TextColor3 = Color3.fromRGB(253, 253, 253)
-	GetKey.TextSize = 14.000
-
-	Note.Name = "Note"
-	Note.Parent = MainFrame
-	Note.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Note.BackgroundTransparency = 1.000
-	Note.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Note.BorderSizePixel = 0
-	Note.Position = UDim2.new(0.081521742, 0, 0.833333313, 0)
-	Note.Size = UDim2.new(0, 308, 0, 20)
-	Note.Font = Enum.Font.Ubuntu
-	Note.Text = "Please ensure that the 1-step key system is fully completed in order to gain access to Cubix."
-	Note.TextColor3 = Color3.fromRGB(255, 255, 255)
-	Note.TextScaled = true
-	Note.TextSize = 11.000
-	Note.TextWrapped = true
-
-	Exit.Name = "Exit"
-	Exit.Parent = MainFrame
-	Exit.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-	Exit.BackgroundTransparency = 1.000
-	Exit.BorderColor3 = Color3.fromRGB(0, 0, 0)
-	Exit.BorderSizePixel = 0
-	Exit.Position = UDim2.new(0.883152187, 0, 0.0441176482, 0)
-	Exit.Size = UDim2.new(0, 23, 0, 23)
-	Exit.Image = "rbxassetid://135632179136026"
-
-	CheckKey.MouseButton1Click:Connect(function()
+	ValidateKeyButton.Name = "ValidateKeyButton"
+	ValidateKeyButton.Parent = ValidateKeyFrame
+	ValidateKeyButton.BackgroundColor3 = Color3.fromRGB(26, 0, 36)
+	ValidateKeyButton.BackgroundTransparency = 1.000
+	ValidateKeyButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	ValidateKeyButton.BorderSizePixel = 0
+	ValidateKeyButton.Size = UDim2.new(0, 125, 0, 35)
+	ValidateKeyButton.Font = Enum.Font.Roboto
+	ValidateKeyButton.Text = "Validate Key"
+	ValidateKeyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+	ValidateKeyButton.TextSize = 14.000
+	ValidateKeyButton.MouseButton1Click:Connect(function()
 		local key = TextBox.Text
 		local defaultresponse = KeyGuardLibrary.validateDefaultKey(key)
 		local premiumresponse = KeyGuardLibrary.validatePremiumKey(key)
 		
 		if defaultresponse == truedata or premiumresponse == truedata then
 			writefile("CubixKey.lua", key)
-			KeySystemGUI:Destroy()
-			enableautoexec()
+			CubixKeySystem:Destroy()
 			if premiumresponse == truedata then
 				loadstring(game:HttpGet("https://raw.githubusercontent.com/nathzzi/Rift-Android/refs/heads/main/scripts/cubix.lua"))()
 			else
 				loadstring(game:HttpGet("https://raw.githubusercontent.com/nathzzi/Rift-Android/refs/heads/main/scripts/cubix.lua"))()
 			end
 		else
-			TextBox.Text = "Invalid key!"
+			TextBox.Text = "Invalid Key!"
 			wait(1)
 			TextBox.Text = ""
 		end
 	end)
 
-	GetKey.MouseButton1Click:Connect(function()
-		local getkeylink = KeyGuardLibrary.getLink()
-		setclipboard(getkeylink)
+	GetKeyFrame.Name = "GetKeyFrame"
+	GetKeyFrame.Parent = Main
+	GetKeyFrame.BackgroundColor3 = Color3.fromRGB(98, 1, 138)
+	GetKeyFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	GetKeyFrame.BorderSizePixel = 0
+	GetKeyFrame.Position = UDim2.new(0.56578958, 0, 0.668500066, 0)
+	GetKeyFrame.Size = UDim2.new(0, 125, 0, 35)
+
+	UICorner_4.CornerRadius = UDim.new(0, 5)
+	UICorner_4.Parent = GetKeyFrame
+
+	GetKeyButton.Name = "GetKeyButton"
+	GetKeyButton.Parent = GetKeyFrame
+	GetKeyButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	GetKeyButton.BackgroundTransparency = 1.000
+	GetKeyButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	GetKeyButton.BorderSizePixel = 0
+	GetKeyButton.Size = UDim2.new(0, 125, 0, 35)
+	GetKeyButton.Font = Enum.Font.Roboto
+	GetKeyButton.Text = "Get Key"
+	GetKeyButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+	GetKeyButton.TextSize = 14.000
+	GetKeyButton.MouseButton1Click:Connect(function()
+		local keylink = KeyGuardLibrary.getLink()
+		setclipboard(keylink)
 		TextBox.Text = "Key link copied!"
 		wait(1)
 		TextBox.Text = ""
 	end)
 
-	Exit.MouseButton1Click:Connect(function()
-		KeySystemGUI:Destroy()
-	end)
+	Note.Name = "Note"
+	Note.Parent = Main
+	Note.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Note.BackgroundTransparency = 1.000
+	Note.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Note.BorderSizePixel = 0
+	Note.Position = UDim2.new(0.0723684207, 0, 0.227280423, 0)
+	Note.Size = UDim2.new(0, 260, 0, 10)
+	Note.Font = Enum.Font.Ubuntu
+	Note.Text = "Complete 1 step of ads to get access to Cubix Android."
+	Note.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Note.TextSize = 9.000
+	Note.TextWrapped = true
 end
