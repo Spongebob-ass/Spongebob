@@ -1,1 +1,346 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/nathzzi/Rift-Android/refs/heads/main/scripts/cubix.lua"))()
+local kloadstring = clonefunction(loadstring)
+local httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
+
+local secure_httpget = function(url)
+	local res = httprequest({
+		Url = url,
+		Method = "GET",
+		Headers = {
+			["Executor"] = identifyexecutor(),
+		},
+	})
+	return res.Body
+end
+
+load = function(path)
+	return kloadstring(secure_httpget(path))()
+end
+
+local spooftable = function(tbl)
+	local oldTbl = tbl
+	local newTbl = setmetatable({}, {
+		__index = function(_, idx)
+			return oldTbl[idx]
+		end,
+	})
+	return newTbl
+end
+
+local get_client_id = function()
+	local clientId
+	if identifyexecutor and string.find(identifyexecutor(), "Delta") then
+		clientId = gethwid()
+	else
+		clientId = game:GetService("RbxAnalyticsService"):GetClientId()
+	end
+	clientId = string.gsub(clientId, "-", "")
+	return clientId
+end
+
+local KeyGuardLibrary = {}
+KeyGuardLibrary.__index = KeyGuardLibrary
+local json = load("https://raw.githubusercontent.com/olympusx00/1/main/2")
+local HashLibrary = load("https://raw.githubusercontent.com/olympusx00/1/main/1")
+local self = {}
+
+function KeyGuardLibrary.Set(settings)
+	self.publicToken = settings.publicToken
+	self.privateToken = settings.privateToken
+	self.trueData = settings.trueData
+	self.falseData = settings.falseData
+end
+
+function checkDataResponse(data)
+	if data.statusCode == 404 then
+		return self.falseData
+	end
+	if data.message == "KEY_NOT_FOUND" or data.message == "KEY_NOT_COMPLETED" or data.message == "KEY_EXPIRED" or data.message == "KEY_INVALID_HWID" or data.message == "KEY_BANNED" or data.message == "KEY_BLACKLISTED" then
+		return self.falseData
+	end
+end
+
+function KeyGuardLibrary.getService()
+	local service = secure_httpget("https://keyguardian.org/api/services/public/get/" .. self.publicToken)
+	return json.decode(service)
+end
+
+function KeyGuardLibrary.getLink()
+	local service = KeyGuardLibrary.getService()
+	return "https://keyguardian.org/a/" .. service.id .. "?id=" .. get_client_id()
+end
+
+function KeyGuardLibrary.validateDefaultKey(key)
+	local response = secure_httpget("https://keyguardian.org/api/whitelist/v1/validate/default-key/" .. self.publicToken .. "/" .. key .. "/" .. get_client_id())
+	local data = json.decode(response)
+	local checked = checkDataResponse(data)
+	if checked then
+		return checked
+	end
+	return HashLibrary.sha512(self.privateToken .. key) == data.message and self.trueData or self.falseData
+end
+
+function KeyGuardLibrary.validatePremiumKey(key)
+	local response = secure_httpget("https://keyguardian.org/api/whitelist/v1/validate/premium-key/" .. self.publicToken .. "/" .. key .. "/" .. get_client_id())
+	local data = json.decode(response)
+	local checked = checkDataResponse(data)
+	if checked then
+		return checked
+	end
+	return HashLibrary.sha512(self.privateToken .. key) == data.message and self.trueData or self.falseData
+end
+
+setmetatable(KeyGuardLibrary, {
+	__index = function(self, key)
+		return rawget(self, key)
+	end,
+	__newindex = function(self, key, value)
+		if getfenv(2) ~= value then
+			error("This metatable is protected", 2)
+		end
+		rawset(self, key, value)
+	end,
+	__metatable = "This metatable is protected.",
+})
+
+local truedata = "5143f840f651404ca653fb30b6813fa4"
+local falsedata = "b10102ef61c541b3b6600246efa44b72"
+
+KeyGuardLibrary.Set({
+	publicToken = "e423a2fdba5842a68919e6f8fb714064",
+	privateToken = "930ecef53c674a3bb5bca1576577716f",
+	trueData = truedata,
+	falseData = falsedata
+})
+
+local service = KeyGuardLibrary.getService()
+
+if isfile("CubixKey.lua") and (KeyGuardLibrary.validateDefaultKey(readfile("CubixKey.lua")) == truedata or KeyGuardLibrary.validatePremiumKey(readfile("CubixKey.lua")) == truedata) then
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/nathzzi/Rift-Android/refs/heads/main/scripts/cubix.lua"))()
+else
+	local KeySystemGUI = Instance.new("ScreenGui")
+	local MainFrame = Instance.new("Frame")
+	local UICorner = Instance.new("UICorner")
+	local TextBoxFrame = Instance.new("Frame")
+	local UICorner_2 = Instance.new("UICorner")
+	local TextBox = Instance.new("TextBox")
+	local Title = Instance.new("Frame")
+	local UICorner_3 = Instance.new("UICorner")
+	local TitleLogo = Instance.new("ImageLabel")
+	local TitleText = Instance.new("TextLabel")
+	local CheckKeyFrame = Instance.new("Frame")
+	local UICorner_4 = Instance.new("UICorner")
+	local CKeyImage = Instance.new("ImageLabel")
+	local CheckKey = Instance.new("TextButton")
+	local GetKeyFrame = Instance.new("Frame")
+	local UICorner_5 = Instance.new("UICorner")
+	local GKeyImage = Instance.new("ImageLabel")
+	local GetKey = Instance.new("TextButton")
+	local Note = Instance.new("TextLabel")
+	local Exit = Instance.new("ImageButton")
+
+	KeySystemGUI.Name = "KeySystemGUI"
+	KeySystemGUI.Parent = game:GetService("CoreGui")
+	KeySystemGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	KeySystemGUI.ResetOnSpawn = false
+
+	MainFrame.Name = "MainFrame"
+	MainFrame.Parent = KeySystemGUI
+	MainFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+	MainFrame.BackgroundTransparency = 0.200
+	MainFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	MainFrame.BorderSizePixel = 0
+	MainFrame.Position = UDim2.new(0.262762934, 0, 0.233340457, 0)
+	MainFrame.Size = UDim2.new(0, 368, 0, 204)
+	MainFrame.Active = true
+	MainFrame.Draggable = true
+
+	UICorner.Parent = MainFrame
+
+	TextBoxFrame.Name = "TextBoxFrame"
+	TextBoxFrame.Parent = MainFrame
+	TextBoxFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+	TextBoxFrame.BackgroundTransparency = 0.200
+	TextBoxFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	TextBoxFrame.BorderSizePixel = 0
+	TextBoxFrame.Position = UDim2.new(0.0565198809, 0, 0.301967919, 0)
+	TextBoxFrame.Size = UDim2.new(0, 328, 0, 40)
+
+	UICorner_2.Parent = TextBoxFrame
+
+	TextBox.Parent = TextBoxFrame
+	TextBox.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TextBox.BackgroundTransparency = 1.000
+	TextBox.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	TextBox.BorderSizePixel = 0
+	TextBox.Position = UDim2.new(-0.00304878037, 0, 0, 0)
+	TextBox.Size = UDim2.new(0, 328, 0, 40)
+	TextBox.ClearTextOnFocus = false
+	TextBox.Font = Enum.Font.Ubuntu
+	TextBox.PlaceholderText = "Enter your key here.."
+	TextBox.Text = ""
+	TextBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TextBox.TextSize = 11.000
+	TextBox.TextWrapped = true
+
+	Title.Name = "Title"
+	Title.Parent = MainFrame
+	Title.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+	Title.BackgroundTransparency = 0.200
+	Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Title.BorderSizePixel = 0
+	Title.Position = UDim2.new(0.0565198809, 0, 0.0666738003, 0)
+	Title.Size = UDim2.new(0, 100, 0, 29)
+
+	UICorner_3.Parent = Title
+
+	TitleLogo.Name = "TitleLogo"
+	TitleLogo.Parent = Title
+	TitleLogo.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TitleLogo.BackgroundTransparency = 1.000
+	TitleLogo.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	TitleLogo.BorderSizePixel = 0
+	TitleLogo.Position = UDim2.new(0, 0, -0.137931034, 0)
+	TitleLogo.Size = UDim2.new(0, 37, 0, 37)
+	TitleLogo.Image = ""
+
+	TitleText.Name = "TitleText"
+	TitleText.Parent = Title
+	TitleText.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	TitleText.BackgroundTransparency = 1.000
+	TitleText.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	TitleText.BorderSizePixel = 0
+	TitleText.Position = UDim2.new(0.0784783959, 0, 0, 0)
+	TitleText.Size = UDim2.new(0, 92, 0, 29)
+	TitleText.Font = Enum.Font.Ubuntu
+	TitleText.Text = "Key System"
+	TitleText.TextColor3 = Color3.fromRGB(255, 255, 255)
+	TitleText.TextSize = 9.000
+	TitleText.TextStrokeTransparency = 33.000
+	TitleText.TextWrapped = true
+
+	CheckKeyFrame.Name = "CheckKeyFrame"
+	CheckKeyFrame.Parent = MainFrame
+	CheckKeyFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+	CheckKeyFrame.BackgroundTransparency = 0.200
+	CheckKeyFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	CheckKeyFrame.BorderSizePixel = 0
+	CheckKeyFrame.Position = UDim2.new(0.0565198809, 0, 0.581379771, 0)
+	CheckKeyFrame.Size = UDim2.new(0, 123, 0, 40)
+
+	UICorner_4.Parent = CheckKeyFrame
+
+	CKeyImage.Name = "CKeyImage"
+	CKeyImage.Parent = CheckKeyFrame
+	CKeyImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	CKeyImage.BackgroundTransparency = 1.000
+	CKeyImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	CKeyImage.BorderSizePixel = 0
+	CKeyImage.Position = UDim2.new(0.065040648, 0, 0.224999994, 0)
+	CKeyImage.Size = UDim2.new(0, 22, 0, 22)
+	CKeyImage.Image = "rbxassetid://99876185755922"
+
+	CheckKey.Name = "CheckKey"
+	CheckKey.Parent = CheckKeyFrame
+	CheckKey.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	CheckKey.BackgroundTransparency = 1.000
+	CheckKey.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	CheckKey.BorderSizePixel = 0
+	CheckKey.Position = UDim2.new(0.0638035685, 0, 0, 0)
+	CheckKey.Size = UDim2.new(0, 115, 0, 40)
+	CheckKey.Font = Enum.Font.Ubuntu
+	CheckKey.Text = "Check Key"
+	CheckKey.TextColor3 = Color3.fromRGB(253, 253, 253)
+	CheckKey.TextSize = 14.000
+
+	GetKeyFrame.Name = "GetKeyFrame"
+	GetKeyFrame.Parent = MainFrame
+	GetKeyFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
+	GetKeyFrame.BackgroundTransparency = 0.200
+	GetKeyFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	GetKeyFrame.BorderSizePixel = 0
+	GetKeyFrame.Position = UDim2.new(0.613585114, 0, 0.581379771, 0)
+	GetKeyFrame.Size = UDim2.new(0, 123, 0, 40)
+
+	UICorner_5.Parent = GetKeyFrame
+
+	GKeyImage.Name = "GKeyImage"
+	GKeyImage.Parent = GetKeyFrame
+	GKeyImage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	GKeyImage.BackgroundTransparency = 1.000
+	GKeyImage.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	GKeyImage.BorderSizePixel = 0
+	GKeyImage.Position = UDim2.new(0.065040648, 0, 0.224999994, 0)
+	GKeyImage.Size = UDim2.new(0, 24, 0, 22)
+	GKeyImage.Image = "rbxassetid://121986274886669"
+
+	GetKey.Name = "GetKey"
+	GetKey.Parent = GetKeyFrame
+	GetKey.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	GetKey.BackgroundTransparency = 1.000
+	GetKey.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	GetKey.BorderSizePixel = 0
+	GetKey.Position = UDim2.new(0.0638035685, 0, 0, 0)
+	GetKey.Size = UDim2.new(0, 115, 0, 40)
+	GetKey.Font = Enum.Font.Ubuntu
+	GetKey.Text = "Get Key"
+	GetKey.TextColor3 = Color3.fromRGB(253, 253, 253)
+	GetKey.TextSize = 14.000
+
+	Note.Name = "Note"
+	Note.Parent = MainFrame
+	Note.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Note.BackgroundTransparency = 1.000
+	Note.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Note.BorderSizePixel = 0
+	Note.Position = UDim2.new(0.081521742, 0, 0.833333313, 0)
+	Note.Size = UDim2.new(0, 308, 0, 20)
+	Note.Font = Enum.Font.Ubuntu
+	Note.Text = "Please ensure that the 1-step key system is fully completed in order to gain access to Cubix."
+	Note.TextColor3 = Color3.fromRGB(255, 255, 255)
+	Note.TextScaled = true
+	Note.TextSize = 11.000
+	Note.TextWrapped = true
+
+	Exit.Name = "Exit"
+	Exit.Parent = MainFrame
+	Exit.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	Exit.BackgroundTransparency = 1.000
+	Exit.BorderColor3 = Color3.fromRGB(0, 0, 0)
+	Exit.BorderSizePixel = 0
+	Exit.Position = UDim2.new(0.883152187, 0, 0.0441176482, 0)
+	Exit.Size = UDim2.new(0, 23, 0, 23)
+	Exit.Image = "rbxassetid://135632179136026"
+
+	CheckKey.MouseButton1Click:Connect(function()
+		local key = TextBox.Text
+		local defaultresponse = KeyGuardLibrary.validateDefaultKey(key)
+		local premiumresponse = KeyGuardLibrary.validatePremiumKey(key)
+		
+		if defaultresponse == truedata or premiumresponse == truedata then
+			writefile("CubixKey.lua", key)
+			KeySystemGUI:Destroy()
+			enableautoexec()
+			if premiumresponse == truedata then
+				loadstring(game:HttpGet("https://raw.githubusercontent.com/nathzzi/Rift-Android/refs/heads/main/scripts/cubix.lua"))()
+			else
+				loadstring(game:HttpGet("https://raw.githubusercontent.com/nathzzi/Rift-Android/refs/heads/main/scripts/cubix.lua"))()
+			end
+		else
+			TextBox.Text = "Invalid key!"
+			wait(1)
+			TextBox.Text = ""
+		end
+	end)
+
+	GetKey.MouseButton1Click:Connect(function()
+		local getkeylink = KeyGuardLibrary.getLink()
+		setclipboard(getkeylink)
+		TextBox.Text = "Key link copied!"
+		wait(1)
+		TextBox.Text = ""
+	end)
+
+	Exit.MouseButton1Click:Connect(function()
+		KeySystemGUI:Destroy()
+	end)
+end
