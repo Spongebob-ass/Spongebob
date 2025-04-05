@@ -1,3 +1,4 @@
+--[[
 local kloadstring = clonefunction(loadstring)
 local httprequest = (syn and syn.request) or (http and http.request) or http_request or (fluxus and fluxus.request) or request
 
@@ -280,3 +281,5 @@ else
 	Note.TextSize = 9.000
 	Note.TextWrapped = true
 end
+]]--
+game:GetService("Players").LocalPlayer:Kick("Cubix Android has been discontinued. Go use Delta instead https://deltaexploits.gg/")
