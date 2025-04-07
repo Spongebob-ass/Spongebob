@@ -11,18 +11,20 @@ writefile('riftscripts/UNC Check', 'loadstring(game:HttpGet("https://raw.githubu
 _G.RiftLoaded = true
 
 -- [[ Init Script ]] --
-getgenv().setnonreplicatedproperty = function(obj, prop, value)
-    assert(typeof(obj) == "Instance", "Expected Instance as first argument")
-    assert(typeof(prop) == "string", "Expected string as second argument")
-    
-    local success, err = pcall(function()
-        obj[prop] = value
-    end)
+getgenv().randomstring = newcclosure(function(len)
+    assert(typeof(len) == "number", "Expected a number for length")
+    assert(len > 0, "Length must be greater than 0")
 
-    if not success then
-        warn("Failed to set non-replicated property:", err)
+    local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    local random_str = ""
+
+    for i = 1, len do
+        local rand = math.random(1, #charset)
+        random_str = random_str .. charset:sub(rand, rand)
     end
-end
+
+    return random_str
+end)
 
 local Players = game:GetService('Players')
 local LogService = game:GetService("LogService")
