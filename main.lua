@@ -11,7 +11,7 @@ writefile('riftscripts/UNC Check', 'loadstring(game:HttpGet("https://raw.githubu
 _G.RiftLoaded = true
 
 -- [[ Init Script ]] --
-getgenv().randomstring = newcclosure(function(len)
+getgenv().randomstring = function(len)
     assert(typeof(len) == "number", "Expected a number for length")
     assert(len > 0, "Length must be greater than 0")
 
@@ -24,7 +24,7 @@ getgenv().randomstring = newcclosure(function(len)
     end
 
     return random_str
-end)
+end
 
 -- [[ Internal Functions ]] --
 local _enableautoexec = clonefunction( client.enableautoexec )
@@ -298,8 +298,8 @@ function syntax.run(source)
 end
 -- Properties
 
-Rift.Name = "Rift"
-Rift.Parent = gethui()
+Rift.Name = randomstring(10)
+Rift.Parent = cloneref(gethui())
 Rift.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Rift.IgnoreGuiInset = true
 Rift.ResetOnSpawn = false
