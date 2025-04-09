@@ -36,11 +36,9 @@ setreadonly(client, true);
 getgenv().client = nil
 
 -- [[ Autoexecute ]] --
-
 _enableautoexec()
 
 -- [[ Interface ]] --
-
 local Players = game:GetService('Players')
 local LogService = game:GetService("LogService")
 
