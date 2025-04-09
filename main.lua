@@ -26,6 +26,21 @@ getgenv().randomstring = newcclosure(function(len)
     return random_str
 end)
 
+-- [[ Internal Functions ]] --
+local _enableautoexec = clonefunction( client.enableautoexec )
+setreadonly(client, false);
+client.enableautoexec = nil
+client.execute = nil
+setreadonly(client, true);
+
+getgenv().client = nil
+
+-- [[ Autoexecute ]] --
+
+_enableautoexec()
+
+-- [[ Interface ]] --
+
 local Players = game:GetService('Players')
 local LogService = game:GetService("LogService")
 
