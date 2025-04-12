@@ -10,22 +10,6 @@ writefile('riftscripts/UNC Check', 'loadstring(game:HttpGet("https://raw.githubu
 
 _G.RiftLoaded = true
 
--- [[ Init Script ]] --
-getgenv().randomstring = function(len)
-    assert(typeof(len) == "number", "Expected a number for length")
-    assert(len > 0, "Length must be greater than 0")
-
-    local charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-    local random_str = ""
-
-    for i = 1, len do
-        local rand = math.random(1, #charset)
-        random_str = random_str .. charset:sub(rand, rand)
-    end
-
-    return random_str
-end
-
 -- [[ Internal Functions ]] --
 local _enableautoexec = clonefunction( client.enableautoexec )
 setreadonly(client, false);
