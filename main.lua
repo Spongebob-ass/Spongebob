@@ -22,13 +22,6 @@ getgenv().client = nil
 -- [[ Autoexecute ]] --
 _enableautoexec()
 
---[[ Init Script ]]--
-getgenv().getscriptbytecode = function(script)
-    if script and script:IsA("Script") then
-        return "mock_bytecodeof" .. script.Name
-    end
-end
-
 -- [[ Interface ]] --
 local Players = game:GetService('Players')
 local LogService = game:GetService("LogService")
