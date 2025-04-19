@@ -3,7 +3,7 @@ if _G.RiftLoaded then
 end
 
 -- [[ Internal Functions ]] --
-local _enableautoexec = clonefunction( client.enableautoexec )
+local _enableautoexec = clonefunction(client.enableautoexec)
 setreadonly(client, false);
 client.enableautoexec = nil
 client.execute = nil
