@@ -9,11 +9,7 @@ client.enableautoexec = nil
 client.execute = nil
 setreadonly(client, true);
 
-getgenv().client = nil
 _G.RiftLoaded = true
-
--- [[ Autoexecute ]] --
-_enableautoexec()
 
 -- [[ Interface ]] --
 local Rift = Instance.new("ScreenGui")
@@ -1066,3 +1062,6 @@ local function UOJGKH_script() -- Rift_open.LocalScript
 	end)
 end
 coroutine.wrap(UOJGKH_script)()
+
+-- [[ Autoexecute ]] --
+_enableautoexec()
