@@ -17,8 +17,6 @@ client.enableautoexec = nil
 client.execute = nil
 setreadonly(client, true);
 
-getgenv().client = nil
-
 -- [[ Autoexecute ]] --
 _enableautoexec()
 
