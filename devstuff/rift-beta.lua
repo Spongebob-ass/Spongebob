@@ -2,7 +2,19 @@ if _G.RiftLoaded then
     return
 end
 
+-- [[ Internal Functions ]] --
+local _enableautoexec = clonefunction( client.enableautoexec )
+setreadonly(client, false);
+client.enableautoexec = nil
+client.execute = nil
+setreadonly(client, true);
+
+getgenv().client = nil
+
 _G.RiftLoaded = true
+
+-- [[ Autoexecute ]] --
+_enableautoexec()
 
 -- [[ Interface ]] --
 local Rift = Instance.new("ScreenGui")
