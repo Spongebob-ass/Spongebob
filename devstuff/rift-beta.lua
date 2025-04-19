@@ -2,13 +2,6 @@ if _G.RiftLoaded then
     return
 end
 
--- [[ Internal Functions ]] --
-local _enableautoexec = clonefunction(client.enableautoexec)
-setreadonly(client, false);
-client.enableautoexec = nil
-client.execute = nil
-setreadonly(client, true);
-
 _G.RiftLoaded = true
 
 -- [[ Interface ]] --
@@ -1062,6 +1055,3 @@ local function UOJGKH_script() -- Rift_open.LocalScript
 	end)
 end
 coroutine.wrap(UOJGKH_script)()
-
--- [[ Autoexecute ]] --
-_enableautoexec()
