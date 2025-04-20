@@ -1,5 +1,5 @@
 if _G.RiftLoaded then
-    return
+	return
 end
 
 -- [[ Internal Functions ]] --
@@ -42,59 +42,85 @@ local UIStroke_4 = Instance.new("UIStroke")
 local Console_image = Instance.new("ImageLabel")
 local Console_button = Instance.new("TextButton")
 local Interface = Instance.new("Folder")
-local Main_Home_frame = Instance.new("Frame")
+local Main_Console_frame = Instance.new("Frame")
 local UICorner_5 = Instance.new("UICorner")
 local UIStroke_5 = Instance.new("UIStroke")
-local User_frame = Instance.new("Frame")
+local Console_scroll = Instance.new("ScrollingFrame")
+local UIListLayout = Instance.new("UIListLayout")
+local Main_Home_frame = Instance.new("Frame")
 local UICorner_6 = Instance.new("UICorner")
-local User_image = Instance.new("ImageLabel")
-local UICorner_7 = Instance.new("UICorner")
 local UIStroke_6 = Instance.new("UIStroke")
-local Username_frame = Instance.new("Frame")
+local User_frame = Instance.new("Frame")
+local UICorner_7 = Instance.new("UICorner")
+local User_image = Instance.new("ImageLabel")
 local UICorner_8 = Instance.new("UICorner")
 local UIStroke_7 = Instance.new("UIStroke")
-local Name = Instance.new("TextLabel")
-local UserId_frame = Instance.new("Frame")
+local Username_frame = Instance.new("Frame")
 local UICorner_9 = Instance.new("UICorner")
 local UIStroke_8 = Instance.new("UIStroke")
-local UserId = Instance.new("TextLabel")
-local Search_frame = Instance.new("Frame")
+local Name = Instance.new("TextLabel")
+local UserId_frame = Instance.new("Frame")
 local UICorner_10 = Instance.new("UICorner")
 local UIStroke_9 = Instance.new("UIStroke")
-local TextLabel = Instance.new("TextLabel")
-local Discord_frame = Instance.new("Frame")
+local UserId = Instance.new("TextLabel")
+local Search_frame = Instance.new("Frame")
 local UICorner_11 = Instance.new("UICorner")
 local UIStroke_10 = Instance.new("UIStroke")
+local TextLabel = Instance.new("TextLabel")
+local Discord_frame = Instance.new("Frame")
+local UICorner_12 = Instance.new("UICorner")
+local UIStroke_11 = Instance.new("UIStroke")
 local Discord_button = Instance.new("TextButton")
 local Rift_image_2 = Instance.new("ImageLabel")
 local Main_Editor_frame = Instance.new("Frame")
-local UICorner_12 = Instance.new("UICorner")
-local UIStroke_11 = Instance.new("UIStroke")
-local Editor_box = Instance.new("TextBox")
-local Execute_frame = Instance.new("Frame")
 local UICorner_13 = Instance.new("UICorner")
 local UIStroke_12 = Instance.new("UIStroke")
+local Execute_frame = Instance.new("Frame")
+local UICorner_14 = Instance.new("UICorner")
+local UIStroke_13 = Instance.new("UIStroke")
 local Execute_button = Instance.new("TextButton")
 local Execute_image = Instance.new("ImageLabel")
 local Clear_frame = Instance.new("Frame")
-local UICorner_14 = Instance.new("UICorner")
-local UIStroke_13 = Instance.new("UIStroke")
+local UICorner_15 = Instance.new("UICorner")
+local UIStroke_14 = Instance.new("UIStroke")
 local Clear_button = Instance.new("TextButton")
 local Clear_image = Instance.new("ImageLabel")
 local Paste_frame = Instance.new("Frame")
-local UICorner_15 = Instance.new("UICorner")
-local UIStroke_14 = Instance.new("UIStroke")
-local Paste_button = Instance.new("TextButton")
-local Paste_image = Instance.new("ImageLabel")
-local Main_Console_frame = Instance.new("Frame")
 local UICorner_16 = Instance.new("UICorner")
 local UIStroke_15 = Instance.new("UIStroke")
-local Console_scroll = Instance.new("ScrollingFrame")
-local UIListLayout = Instance.new("UIListLayout")
+local Paste_button = Instance.new("TextButton")
+local Paste_image = Instance.new("ImageLabel")
+local EditorScroll = Instance.new("ScrollingFrame")
+local Editor_box = Instance.new("TextBox")
+local Main_Home_frame_2 = Instance.new("Frame")
 local UICorner_17 = Instance.new("UICorner")
-local Rift_frame = Instance.new("Frame")
-local UICorner_18 = Instance.new("UICorner")
 local UIStroke_16 = Instance.new("UIStroke")
+local User_frame_2 = Instance.new("Frame")
+local UICorner_18 = Instance.new("UICorner")
+local User_image_2 = Instance.new("ImageLabel")
+local UICorner_19 = Instance.new("UICorner")
+local UIStroke_17 = Instance.new("UIStroke")
+local Username_frame_2 = Instance.new("Frame")
+local UICorner_20 = Instance.new("UICorner")
+local UIStroke_18 = Instance.new("UIStroke")
+local Name_2 = Instance.new("TextLabel")
+local UserId_frame_2 = Instance.new("Frame")
+local UICorner_21 = Instance.new("UICorner")
+local UIStroke_19 = Instance.new("UIStroke")
+local UserId_2 = Instance.new("TextLabel")
+local Search_frame_2 = Instance.new("Frame")
+local UICorner_22 = Instance.new("UICorner")
+local UIStroke_20 = Instance.new("UIStroke")
+local TextLabel_2 = Instance.new("TextLabel")
+local Discord_frame_2 = Instance.new("Frame")
+local UICorner_23 = Instance.new("UICorner")
+local UIStroke_21 = Instance.new("UIStroke")
+local Discord_button_2 = Instance.new("TextButton")
+local Rift_image_3 = Instance.new("ImageLabel")
+local UICorner_24 = Instance.new("UICorner")
+local Rift_frame = Instance.new("Frame")
+local UICorner_25 = Instance.new("UICorner")
+local UIStroke_22 = Instance.new("UIStroke")
 local Rift_open = Instance.new("ImageButton")
 
 Rift.Name = "Rift"
@@ -275,6 +301,37 @@ Console_button.TextSize = 15.000
 Interface.Name = "Interface"
 Interface.Parent = MainFrame
 
+Main_Console_frame.Name = "Main_Console_frame"
+Main_Console_frame.Parent = Interface
+Main_Console_frame.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+Main_Console_frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main_Console_frame.BorderSizePixel = 0
+Main_Console_frame.Position = UDim2.new(0.285440624, 0, 0.0266110133, 0)
+Main_Console_frame.Size = UDim2.new(0, 366, 0, 253)
+Main_Console_frame.Visible = false
+
+UICorner_5.CornerRadius = UDim.new(0, 5)
+UICorner_5.Parent = Main_Console_frame
+
+UIStroke_5.Parent = Main_Console_frame
+UIStroke_5.Color = Color3.fromRGB(57, 57, 57)
+
+Console_scroll.Name = "Console_scroll"
+Console_scroll.Parent = Main_Console_frame
+Console_scroll.Active = true
+Console_scroll.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Console_scroll.BackgroundTransparency = 1.000
+Console_scroll.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Console_scroll.BorderSizePixel = 0
+Console_scroll.Position = UDim2.new(0.0191256832, 0, 0, 0)
+Console_scroll.Size = UDim2.new(0, 359, 0, 252)
+Console_scroll.ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)
+Console_scroll.ScrollBarThickness = 4
+
+UIListLayout.Parent = Console_scroll
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+UIListLayout.Padding = UDim.new(0, 2)
+
 Main_Home_frame.Name = "Main_Home_frame"
 Main_Home_frame.Parent = Interface
 Main_Home_frame.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
@@ -283,11 +340,11 @@ Main_Home_frame.BorderSizePixel = 0
 Main_Home_frame.Position = UDim2.new(0.285440624, 0, 0.0266110133, 0)
 Main_Home_frame.Size = UDim2.new(0, 366, 0, 253)
 
-UICorner_5.CornerRadius = UDim.new(0, 5)
-UICorner_5.Parent = Main_Home_frame
+UICorner_6.CornerRadius = UDim.new(0, 5)
+UICorner_6.Parent = Main_Home_frame
 
-UIStroke_5.Parent = Main_Home_frame
-UIStroke_5.Color = Color3.fromRGB(57, 57, 57)
+UIStroke_6.Parent = Main_Home_frame
+UIStroke_6.Color = Color3.fromRGB(57, 57, 57)
 
 User_frame.Name = "User_frame"
 User_frame.Parent = Main_Home_frame
@@ -297,8 +354,8 @@ User_frame.BorderSizePixel = 0
 User_frame.Position = UDim2.new(0.0340744592, 0, 0.0503263809, 0)
 User_frame.Size = UDim2.new(0, 221, 0, 65)
 
-UICorner_6.CornerRadius = UDim.new(0, 5)
-UICorner_6.Parent = User_frame
+UICorner_7.CornerRadius = UDim.new(0, 5)
+UICorner_7.Parent = User_frame
 
 User_image.Name = "User_image"
 User_image.Parent = User_frame
@@ -310,11 +367,11 @@ User_image.Position = UDim2.new(0.0452488698, 0, 0.107692309, 0)
 User_image.Size = UDim2.new(0, 51, 0, 51)
 User_image.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
 
-UICorner_7.CornerRadius = UDim.new(0, 5)
-UICorner_7.Parent = User_image
+UICorner_8.CornerRadius = UDim.new(0, 5)
+UICorner_8.Parent = User_image
 
-UIStroke_6.Parent = User_frame
-UIStroke_6.Color = Color3.fromRGB(57, 57, 57)
+UIStroke_7.Parent = User_frame
+UIStroke_7.Color = Color3.fromRGB(57, 57, 57)
 
 Username_frame.Name = "Username_frame"
 Username_frame.Parent = User_frame
@@ -324,11 +381,11 @@ Username_frame.BorderSizePixel = 0
 Username_frame.Position = UDim2.new(0.355341434, 0, 0.0964801461, 0)
 Username_frame.Size = UDim2.new(0, 127, 0, 23)
 
-UICorner_8.CornerRadius = UDim.new(0, 5)
-UICorner_8.Parent = Username_frame
+UICorner_9.CornerRadius = UDim.new(0, 5)
+UICorner_9.Parent = Username_frame
 
-UIStroke_7.Parent = Username_frame
-UIStroke_7.Color = Color3.fromRGB(57, 57, 57)
+UIStroke_8.Parent = Username_frame
+UIStroke_8.Color = Color3.fromRGB(57, 57, 57)
 
 Name.Name = "Name"
 Name.Parent = Username_frame
@@ -350,11 +407,11 @@ UserId_frame.BorderSizePixel = 0
 UserId_frame.Position = UDim2.new(0.44131428, 0, 0.588787854, 0)
 UserId_frame.Size = UDim2.new(0, 89, 0, 17)
 
-UICorner_9.CornerRadius = UDim.new(0, 5)
-UICorner_9.Parent = UserId_frame
+UICorner_10.CornerRadius = UDim.new(0, 5)
+UICorner_10.Parent = UserId_frame
 
-UIStroke_8.Parent = UserId_frame
-UIStroke_8.Color = Color3.fromRGB(57, 57, 57)
+UIStroke_9.Parent = UserId_frame
+UIStroke_9.Color = Color3.fromRGB(57, 57, 57)
 
 UserId.Name = "UserId"
 UserId.Parent = UserId_frame
@@ -377,11 +434,11 @@ Search_frame.BorderSizePixel = 0
 Search_frame.Position = UDim2.new(0.0340744592, 0, 0.343457967, 0)
 Search_frame.Size = UDim2.new(0, 344, 0, 156)
 
-UICorner_10.CornerRadius = UDim.new(0, 5)
-UICorner_10.Parent = Search_frame
+UICorner_11.CornerRadius = UDim.new(0, 5)
+UICorner_11.Parent = Search_frame
 
-UIStroke_9.Parent = Search_frame
-UIStroke_9.Color = Color3.fromRGB(57, 57, 57)
+UIStroke_10.Parent = Search_frame
+UIStroke_10.Color = Color3.fromRGB(57, 57, 57)
 
 TextLabel.Parent = Search_frame
 TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -403,11 +460,11 @@ Discord_frame.BorderSizePixel = 0
 Discord_frame.Position = UDim2.new(0.327679127, 0, 0.772945106, 0)
 Discord_frame.Size = UDim2.new(0, 114, 0, 25)
 
-UICorner_11.CornerRadius = UDim.new(0, 5)
-UICorner_11.Parent = Discord_frame
+UICorner_12.CornerRadius = UDim.new(0, 5)
+UICorner_12.Parent = Discord_frame
 
-UIStroke_10.Parent = Discord_frame
-UIStroke_10.Color = Color3.fromRGB(57, 57, 57)
+UIStroke_11.Parent = Discord_frame
+UIStroke_11.Color = Color3.fromRGB(57, 57, 57)
 
 Discord_button.Name = "Discord_button"
 Discord_button.Parent = Discord_frame
@@ -440,29 +497,11 @@ Main_Editor_frame.Position = UDim2.new(0.285440624, 0, 0.0266110133, 0)
 Main_Editor_frame.Size = UDim2.new(0, 366, 0, 253)
 Main_Editor_frame.Visible = false
 
-UICorner_12.CornerRadius = UDim.new(0, 5)
-UICorner_12.Parent = Main_Editor_frame
+UICorner_13.CornerRadius = UDim.new(0, 5)
+UICorner_13.Parent = Main_Editor_frame
 
-UIStroke_11.Parent = Main_Editor_frame
-UIStroke_11.Color = Color3.fromRGB(57, 57, 57)
-
-Editor_box.Name = "Editor_box"
-Editor_box.Parent = Main_Editor_frame
-Editor_box.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Editor_box.BackgroundTransparency = 1.000
-Editor_box.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Editor_box.BorderSizePixel = 0
-Editor_box.ClipsDescendants = true
-Editor_box.Position = UDim2.new(0.0202873517, 0, 0.0250731464, 0)
-Editor_box.Size = UDim2.new(0, 358, 0, 205)
-Editor_box.ClearTextOnFocus = false
-Editor_box.Font = Enum.Font.SourceSans
-Editor_box.Text = ""
-Editor_box.TextColor3 = Color3.fromRGB(255, 255, 255)
-Editor_box.TextSize = 12.000
-Editor_box.TextWrapped = true
-Editor_box.TextXAlignment = Enum.TextXAlignment.Left
-Editor_box.TextYAlignment = Enum.TextYAlignment.Top
+UIStroke_12.Parent = Main_Editor_frame
+UIStroke_12.Color = Color3.fromRGB(57, 57, 57)
 
 Execute_frame.Name = "Execute_frame"
 Execute_frame.Parent = Main_Editor_frame
@@ -472,11 +511,11 @@ Execute_frame.BorderSizePixel = 0
 Execute_frame.Position = UDim2.new(0.896174848, 0, 0.8577075, 0)
 Execute_frame.Size = UDim2.new(0, 31, 0, 30)
 
-UICorner_13.CornerRadius = UDim.new(0, 5)
-UICorner_13.Parent = Execute_frame
+UICorner_14.CornerRadius = UDim.new(0, 5)
+UICorner_14.Parent = Execute_frame
 
-UIStroke_12.Parent = Execute_frame
-UIStroke_12.Color = Color3.fromRGB(57, 57, 57)
+UIStroke_13.Parent = Execute_frame
+UIStroke_13.Color = Color3.fromRGB(57, 57, 57)
 
 Execute_button.Name = "Execute_button"
 Execute_button.Parent = Execute_frame
@@ -508,11 +547,11 @@ Clear_frame.BorderSizePixel = 0
 Clear_frame.Position = UDim2.new(0.792349756, 0, 0.8577075, 0)
 Clear_frame.Size = UDim2.new(0, 31, 0, 30)
 
-UICorner_14.CornerRadius = UDim.new(0, 5)
-UICorner_14.Parent = Clear_frame
+UICorner_15.CornerRadius = UDim.new(0, 5)
+UICorner_15.Parent = Clear_frame
 
-UIStroke_13.Parent = Clear_frame
-UIStroke_13.Color = Color3.fromRGB(57, 57, 57)
+UIStroke_14.Parent = Clear_frame
+UIStroke_14.Color = Color3.fromRGB(57, 57, 57)
 
 Clear_button.Name = "Clear_button"
 Clear_button.Parent = Clear_frame
@@ -544,11 +583,11 @@ Paste_frame.BorderSizePixel = 0
 Paste_frame.Position = UDim2.new(0.688524604, 0, 0.8577075, 0)
 Paste_frame.Size = UDim2.new(0, 31, 0, 30)
 
-UICorner_15.CornerRadius = UDim.new(0, 5)
-UICorner_15.Parent = Paste_frame
+UICorner_16.CornerRadius = UDim.new(0, 5)
+UICorner_16.Parent = Paste_frame
 
-UIStroke_14.Parent = Paste_frame
-UIStroke_14.Color = Color3.fromRGB(57, 57, 57)
+UIStroke_15.Parent = Paste_frame
+UIStroke_15.Color = Color3.fromRGB(57, 57, 57)
 
 Paste_button.Name = "Paste_button"
 Paste_button.Parent = Paste_frame
@@ -572,39 +611,195 @@ Paste_image.Position = UDim2.new(0.225806445, 0, 0.196496576, 0)
 Paste_image.Size = UDim2.new(0, 17, 0, 18)
 Paste_image.Image = "rbxassetid://82697895065869"
 
-Main_Console_frame.Name = "Main_Console_frame"
-Main_Console_frame.Parent = Interface
-Main_Console_frame.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
-Main_Console_frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Main_Console_frame.BorderSizePixel = 0
-Main_Console_frame.Position = UDim2.new(0.285440624, 0, 0.0266110133, 0)
-Main_Console_frame.Size = UDim2.new(0, 366, 0, 253)
-Main_Console_frame.Visible = false
+EditorScroll.Name = "EditorScroll"
+EditorScroll.Parent = Main_Editor_frame
+EditorScroll.Active = true
+EditorScroll.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+EditorScroll.BackgroundTransparency = 1.000
+EditorScroll.BorderColor3 = Color3.fromRGB(0, 0, 0)
+EditorScroll.BorderSizePixel = 0
+EditorScroll.Position = UDim2.new(1.66762717e-07, 0, 0.0316205546, 0)
+EditorScroll.Size = UDim2.new(0, 365, 0, 203)
+EditorScroll.ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)
+EditorScroll.ScrollBarThickness = 3
 
-UICorner_16.CornerRadius = UDim.new(0, 5)
-UICorner_16.Parent = Main_Console_frame
+Editor_box.Name = "Editor_box"
+Editor_box.Parent = EditorScroll
+Editor_box.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Editor_box.BackgroundTransparency = 1.000
+Editor_box.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Editor_box.BorderSizePixel = 0
+Editor_box.Position = UDim2.new(0.0301369857, 0, 0.0022345481, 0)
+Editor_box.Size = UDim2.new(0, 354, 0, 229)
+Editor_box.ClearTextOnFocus = false
+Editor_box.Font = Enum.Font.SourceSans
+Editor_box.MultiLine = true
+Editor_box.Text = ""
+Editor_box.TextColor3 = Color3.fromRGB(255, 255, 255)
+Editor_box.TextSize = 11.000
+Editor_box.TextWrapped = true
+Editor_box.TextXAlignment = Enum.TextXAlignment.Left
+Editor_box.TextYAlignment = Enum.TextYAlignment.Top
 
-UIStroke_15.Parent = Main_Console_frame
-UIStroke_15.Color = Color3.fromRGB(57, 57, 57)
-
-Console_scroll.Name = "Console_scroll"
-Console_scroll.Parent = Main_Console_frame
-Console_scroll.Active = true
-Console_scroll.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-Console_scroll.BackgroundTransparency = 1.000
-Console_scroll.BorderColor3 = Color3.fromRGB(0, 0, 0)
-Console_scroll.BorderSizePixel = 0
-Console_scroll.Position = UDim2.new(0.0191256832, 0, 0, 0)
-Console_scroll.Size = UDim2.new(0, 359, 0, 252)
-Console_scroll.ScrollBarImageColor3 = Color3.fromRGB(0, 0, 0)
-Console_scroll.ScrollBarThickness = 4
-
-UIListLayout.Parent = Console_scroll
-UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-UIListLayout.Padding = UDim.new(0, 2)
+Main_Home_frame_2.Name = "Main_Home_frame"
+Main_Home_frame_2.Parent = Editor_box
+Main_Home_frame_2.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+Main_Home_frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Main_Home_frame_2.BorderSizePixel = 0
+Main_Home_frame_2.Position = UDim2.new(0.285440624, 0, 0.0266110133, 0)
+Main_Home_frame_2.Size = UDim2.new(0, 366, 0, 253)
+Main_Home_frame_2.Visible = false
 
 UICorner_17.CornerRadius = UDim.new(0, 5)
-UICorner_17.Parent = MainFrame
+UICorner_17.Parent = Main_Home_frame_2
+
+UIStroke_16.Parent = Main_Home_frame_2
+UIStroke_16.Color = Color3.fromRGB(57, 57, 57)
+
+User_frame_2.Name = "User_frame"
+User_frame_2.Parent = Main_Home_frame_2
+User_frame_2.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+User_frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+User_frame_2.BorderSizePixel = 0
+User_frame_2.Position = UDim2.new(0.0340744592, 0, 0.0503263809, 0)
+User_frame_2.Size = UDim2.new(0, 221, 0, 65)
+
+UICorner_18.CornerRadius = UDim.new(0, 5)
+UICorner_18.Parent = User_frame_2
+
+User_image_2.Name = "User_image"
+User_image_2.Parent = User_frame_2
+User_image_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+User_image_2.BackgroundTransparency = 1.000
+User_image_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+User_image_2.BorderSizePixel = 0
+User_image_2.Position = UDim2.new(0.0452488698, 0, 0.107692309, 0)
+User_image_2.Size = UDim2.new(0, 51, 0, 51)
+User_image_2.Image = "rbxasset://textures/ui/GuiImagePlaceholder.png"
+
+UICorner_19.CornerRadius = UDim.new(0, 5)
+UICorner_19.Parent = User_image_2
+
+UIStroke_17.Parent = User_frame_2
+UIStroke_17.Color = Color3.fromRGB(57, 57, 57)
+
+Username_frame_2.Name = "Username_frame"
+Username_frame_2.Parent = User_frame_2
+Username_frame_2.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+Username_frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Username_frame_2.BorderSizePixel = 0
+Username_frame_2.Position = UDim2.new(0.355341434, 0, 0.0964801461, 0)
+Username_frame_2.Size = UDim2.new(0, 127, 0, 23)
+
+UICorner_20.CornerRadius = UDim.new(0, 5)
+UICorner_20.Parent = Username_frame_2
+
+UIStroke_18.Parent = Username_frame_2
+UIStroke_18.Color = Color3.fromRGB(57, 57, 57)
+
+Name_2.Name = "Name"
+Name_2.Parent = Username_frame_2
+Name_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Name_2.BackgroundTransparency = 1.000
+Name_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Name_2.BorderSizePixel = 0
+Name_2.Size = UDim2.new(0, 127, 0, 23)
+Name_2.Font = Enum.Font.SourceSans
+Name_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Name_2.TextSize = 11.000
+Name_2.TextWrapped = true
+
+UserId_frame_2.Name = "UserId_frame"
+UserId_frame_2.Parent = User_frame_2
+UserId_frame_2.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+UserId_frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+UserId_frame_2.BorderSizePixel = 0
+UserId_frame_2.Position = UDim2.new(0.44131428, 0, 0.588787854, 0)
+UserId_frame_2.Size = UDim2.new(0, 89, 0, 17)
+
+UICorner_21.CornerRadius = UDim.new(0, 5)
+UICorner_21.Parent = UserId_frame_2
+
+UIStroke_19.Parent = UserId_frame_2
+UIStroke_19.Color = Color3.fromRGB(57, 57, 57)
+
+UserId_2.Name = "UserId"
+UserId_2.Parent = UserId_frame_2
+UserId_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+UserId_2.BackgroundTransparency = 1.000
+UserId_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+UserId_2.BorderSizePixel = 0
+UserId_2.Position = UDim2.new(0, 0, 0.235294119, 0)
+UserId_2.Size = UDim2.new(0, 89, 0, 9)
+UserId_2.Font = Enum.Font.SourceSans
+UserId_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+UserId_2.TextSize = 10.000
+UserId_2.TextWrapped = true
+
+Search_frame_2.Name = "Search_frame"
+Search_frame_2.Parent = Main_Home_frame_2
+Search_frame_2.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+Search_frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Search_frame_2.BorderSizePixel = 0
+Search_frame_2.Position = UDim2.new(0.0340744592, 0, 0.343457967, 0)
+Search_frame_2.Size = UDim2.new(0, 344, 0, 156)
+
+UICorner_22.CornerRadius = UDim.new(0, 5)
+UICorner_22.Parent = Search_frame_2
+
+UIStroke_20.Parent = Search_frame_2
+UIStroke_20.Color = Color3.fromRGB(57, 57, 57)
+
+TextLabel_2.Parent = Search_frame_2
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.BorderSizePixel = 0
+TextLabel_2.Position = UDim2.new(0.0494186059, 0, 0.641025662, 0)
+TextLabel_2.Size = UDim2.new(0, 309, 0, 11)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "If you encounter any bugs, please don’t hesitate to contact us."
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 14.000
+
+Discord_frame_2.Name = "Discord_frame"
+Discord_frame_2.Parent = Search_frame_2
+Discord_frame_2.BackgroundColor3 = Color3.fromRGB(26, 26, 26)
+Discord_frame_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Discord_frame_2.BorderSizePixel = 0
+Discord_frame_2.Position = UDim2.new(0.327679127, 0, 0.772945106, 0)
+Discord_frame_2.Size = UDim2.new(0, 114, 0, 25)
+
+UICorner_23.CornerRadius = UDim.new(0, 5)
+UICorner_23.Parent = Discord_frame_2
+
+UIStroke_21.Parent = Discord_frame_2
+UIStroke_21.Color = Color3.fromRGB(57, 57, 57)
+
+Discord_button_2.Name = "Discord_button"
+Discord_button_2.Parent = Discord_frame_2
+Discord_button_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Discord_button_2.BackgroundTransparency = 1.000
+Discord_button_2.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Discord_button_2.BorderSizePixel = 0
+Discord_button_2.Size = UDim2.new(0, 114, 0, 24)
+Discord_button_2.Font = Enum.Font.SourceSans
+Discord_button_2.Text = "Copy Discord URL"
+Discord_button_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+Discord_button_2.TextSize = 13.000
+
+Rift_image_3.Name = "Rift_image"
+Rift_image_3.Parent = Search_frame_2
+Rift_image_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Rift_image_3.BackgroundTransparency = 1.000
+Rift_image_3.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Rift_image_3.BorderSizePixel = 0
+Rift_image_3.Position = UDim2.new(0.35161075, 0, 0.0384615399, 0)
+Rift_image_3.Size = UDim2.new(0, 100, 0, 94)
+Rift_image_3.Image = "rbxassetid://135123682987938"
+
+UICorner_24.CornerRadius = UDim.new(0, 5)
+UICorner_24.Parent = MainFrame
 
 Rift_frame.Name = "Rift_frame"
 Rift_frame.Parent = Rift
@@ -615,11 +810,11 @@ Rift_frame.Position = UDim2.new(0.886150241, 0, 0.0305343512, 0)
 Rift_frame.Size = UDim2.new(0, 38, 0, 37)
 Rift_frame.Visible = false
 
-UICorner_18.CornerRadius = UDim.new(1, 0)
-UICorner_18.Parent = Rift_frame
+UICorner_25.CornerRadius = UDim.new(1, 0)
+UICorner_25.Parent = Rift_frame
 
-UIStroke_16.Parent = Rift_frame
-UIStroke_16.Color = Color3.fromRGB(57, 57, 57)
+UIStroke_22.Parent = Rift_frame
+UIStroke_22.Color = Color3.fromRGB(57, 57, 57)
 
 Rift_open.Name = "Rift_open"
 Rift_open.Parent = Rift_frame
@@ -632,7 +827,7 @@ Rift_open.Image = "rbxassetid://135123682987938"
 
 -- Scripts:
 
-local function KSFSQF_script() -- Editor_button.LocalScript 
+local function VBAVQC_script() -- Editor_button.LocalScript 
 	local script = Instance.new('LocalScript', Editor_button)
 
 	local button = script.Parent
@@ -646,8 +841,8 @@ local function KSFSQF_script() -- Editor_button.LocalScript
 		console.Visible = false
 	end)
 end
-coroutine.wrap(KSFSQF_script)()
-local function AMWHQW_script() -- Home_button.LocalScript 
+coroutine.wrap(VBAVQC_script)()
+local function CLBU_script() -- Home_button.LocalScript 
 	local script = Instance.new('LocalScript', Home_button)
 
 	local button = script.Parent
@@ -661,8 +856,8 @@ local function AMWHQW_script() -- Home_button.LocalScript
 		console.Visible = false
 	end)
 end
-coroutine.wrap(AMWHQW_script)()
-local function GRHIBW_script() -- Exit_button.LocalScript 
+coroutine.wrap(CLBU_script)()
+local function LUULTG_script() -- Exit_button.LocalScript 
 	local script = Instance.new('LocalScript', Exit_button)
 
 	local button = script.Parent
@@ -674,8 +869,8 @@ local function GRHIBW_script() -- Exit_button.LocalScript
 		mainframe.Visible = false
 	end)
 end
-coroutine.wrap(GRHIBW_script)()
-local function RCBR_script() -- Console_button.LocalScript 
+coroutine.wrap(LUULTG_script)()
+local function DARC_script() -- Console_button.LocalScript 
 	local script = Instance.new('LocalScript', Console_button)
 
 	local button = script.Parent
@@ -689,8 +884,48 @@ local function RCBR_script() -- Console_button.LocalScript
 		console.Visible = true
 	end)
 end
-coroutine.wrap(RCBR_script)()
-local function EZENSXL_script() -- User_image.LocalScript 
+coroutine.wrap(DARC_script)()
+local function XNYU_script() -- Console_scroll.LocalScript 
+	local script = Instance.new('LocalScript', Console_scroll)
+
+	local consoleFrame = script.Parent
+	local layout = consoleFrame.UIListLayout
+	
+	local function updateCanvasSize()
+		consoleFrame.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y)
+	end
+	
+	local function addLog(message, messageType)
+		local logLabel = Instance.new("TextLabel")
+		logLabel.Size = UDim2.new(1, 0, 0, 20)
+		logLabel.BackgroundTransparency = 1
+		logLabel.Font = Enum.Font.Code
+		logLabel.TextSize = 12
+		logLabel.TextXAlignment = Enum.TextXAlignment.Left
+		logLabel.TextWrapped = false
+		logLabel.ClipsDescendants = true
+	
+		if messageType == Enum.MessageType.MessageOutput then
+			logLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
+		elseif messageType == Enum.MessageType.MessageWarning then
+			logLabel.TextColor3 = Color3.fromRGB(255, 200, 0)
+		elseif messageType == Enum.MessageType.MessageError then
+			logLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+		end
+	
+		logLabel.Text = message
+		logLabel.Parent = consoleFrame
+	
+		updateCanvasSize()
+	end
+	
+	game:GetService("LogService").MessageOut:Connect(function(message, messageType)
+		addLog(message, messageType)
+	end)
+	
+end
+coroutine.wrap(XNYU_script)()
+local function MYCPCFI_script() -- User_image.LocalScript 
 	local script = Instance.new('LocalScript', User_image)
 
 	local Players = game:GetService("Players")
@@ -712,8 +947,8 @@ local function EZENSXL_script() -- User_image.LocalScript
 	updateAvatar()
 	
 end
-coroutine.wrap(EZENSXL_script)()
-local function TOQHV_script() -- Name.LocalScript 
+coroutine.wrap(MYCPCFI_script)()
+local function KEINWUE_script() -- Name.LocalScript 
 	local script = Instance.new('LocalScript', Name)
 
 	local parent = script.Parent
@@ -722,8 +957,8 @@ local function TOQHV_script() -- Name.LocalScript
 	
 	parent.Text = name
 end
-coroutine.wrap(TOQHV_script)()
-local function GXKI_script() -- UserId.LocalScript 
+coroutine.wrap(KEINWUE_script)()
+local function ZAYXSS_script() -- UserId.LocalScript 
 	local script = Instance.new('LocalScript', UserId)
 
 	local parent = script.Parent
@@ -732,8 +967,8 @@ local function GXKI_script() -- UserId.LocalScript
 	
 	parent.Text = uid
 end
-coroutine.wrap(GXKI_script)()
-local function XNYUCU_script() -- Discord_button.LocalScript 
+coroutine.wrap(ZAYXSS_script)()
+local function VSGY_script() -- Discord_button.LocalScript 
 	local script = Instance.new('LocalScript', Discord_button)
 
 	local button = script.Parent
@@ -743,8 +978,43 @@ local function XNYUCU_script() -- Discord_button.LocalScript
 		setclipboard(url)
 	end)
 end
-coroutine.wrap(XNYUCU_script)()
-local function RXAM_script() -- Editor_box.LocalScript 
+coroutine.wrap(VSGY_script)()
+local function XTWZDO_script() -- Execute_button.LocalScript 
+	local script = Instance.new('LocalScript', Execute_button)
+
+	local button = script.Parent
+	local textbox = script.Parent.Parent.Parent.EditorScroll.Editor_box
+	
+	button.MouseButton1Click:Connect(function()
+		local rawCode = textbox.Text:gsub("<[^>]->", "")
+		loadstring(rawCode)()
+	end)
+	
+end
+coroutine.wrap(XTWZDO_script)()
+local function UQUTNU_script() -- Clear_button.LocalScript 
+	local script = Instance.new('LocalScript', Clear_button)
+
+	local button = script.Parent
+	local textbox = script.Parent.Parent.Parent.EditorScroll.Editor_box
+	
+	button.MouseButton1Click:Connect(function()
+		textbox.Text = ""
+	end)
+end
+coroutine.wrap(UQUTNU_script)()
+local function ZAHAE_script() -- Paste_button.LocalScript 
+	local script = Instance.new('LocalScript', Paste_button)
+
+	local button = script.Parent
+	local textbox = script.Parent.Parent.Parent.EditorScroll.Editor_box
+	
+	button.MouseButton1Click:Connect(function()
+		textbox.Text = getclipboard()
+	end)
+end
+coroutine.wrap(ZAHAE_script)()
+local function ZHKNB_script() -- Editor_box.LocalScript 
 	local script = Instance.new('LocalScript', Editor_box)
 
 	local syntax = {}
@@ -909,8 +1179,19 @@ local function RXAM_script() -- Editor_box.LocalScript
 		return table.concat(highlighted)
 	end
 	
+	local UserInputService = game:GetService("UserInputService")
+	
+	local scrollingFrame = script.Parent.Parent
 	local textBox = script.Parent
 	local isEditing = false
+	local originalSize = textBox.Size
+	local frame = scrollingFrame
+	
+	local function updateCanvasSize()
+		local textSize = textBox.TextBounds
+		textBox.Size = UDim2.new(1, 0, 0, textSize.Y + 10)
+		scrollingFrame.CanvasSize = UDim2.new(0, 0, 0, textBox.AbsoluteSize.Y)
+	end
 	
 	local function updateHighlighting()
 		if isEditing then return end
@@ -920,10 +1201,12 @@ local function RXAM_script() -- Editor_box.LocalScript
 	
 		textBox.RichText = true
 		textBox.Text = highlightedText
+		updateCanvasSize()
 	end
 	
 	textBox.Focused:Connect(function()
 		isEditing = true
+		textBox.Size = originalSize
 		textBox.RichText = false
 		textBox.Text = textBox.Text:gsub("<[^>]->", "")
 	end)
@@ -933,89 +1216,79 @@ local function RXAM_script() -- Editor_box.LocalScript
 		updateHighlighting()
 	end)
 	
-	textBox:GetPropertyChangedSignal("Text"):Connect(updateHighlighting)
+	textBox:GetPropertyChangedSignal("Text"):Connect(function()
+		updateHighlighting()
+	end)
+	
+	textBox:GetPropertyChangedSignal("TextSize"):Connect(updateCanvasSize)
+	textBox:GetPropertyChangedSignal("Font"):Connect(updateCanvasSize)
+	
+	frame.InputBegan:Connect(function(input)
+		if input.UserInputType == Enum.UserInputType.Touch then
+			textBox:CaptureFocus()
+		end
+	end)
 	
 	textBox.Text = 'print("Welcome to Rift Android!")'
 	updateHighlighting()
 	
 end
-coroutine.wrap(RXAM_script)()
-local function NPRFZBV_script() -- Execute_button.LocalScript 
-	local script = Instance.new('LocalScript', Execute_button)
+coroutine.wrap(ZHKNB_script)()
+local function OZNO_script() -- User_image_2.LocalScript 
+	local script = Instance.new('LocalScript', User_image_2)
 
-	local button = script.Parent
-	local textbox = script.Parent.Parent.Parent.Editor_box
+	local Players = game:GetService("Players")
+	local localPlayer = Players.LocalPlayer
+	local imageLabel = script.Parent
 	
-	button.MouseButton1Click:Connect(function()
-		local rawCode = textbox.Text:gsub("<[^>]->", "")
-		loadstring(rawCode)()
-	end)
+	local thumbType = Enum.ThumbnailType.HeadShot
+	local thumbSize = Enum.ThumbnailSize.Size420x420
 	
-end
-coroutine.wrap(NPRFZBV_script)()
-local function HMLL_script() -- Clear_button.LocalScript 
-	local script = Instance.new('LocalScript', Clear_button)
-
-	local button = script.Parent
-	local textbox = script.Parent.Parent.Parent.Editor_box
-	
-	button.MouseButton1Click:Connect(function()
-		textbox.Text = ""
-	end)
-end
-coroutine.wrap(HMLL_script)()
-local function NJMJLA_script() -- Paste_button.LocalScript 
-	local script = Instance.new('LocalScript', Paste_button)
-
-	local button = script.Parent
-	local textbox = script.Parent.Parent.Parent.Editor_box
-	
-	button.MouseButton1Click:Connect(function()
-		textbox.Text = getclipboard()
-	end)
-end
-coroutine.wrap(NJMJLA_script)()
-local function RHQMR_script() -- Console_scroll.LocalScript 
-	local script = Instance.new('LocalScript', Console_scroll)
-
-	local consoleFrame = script.Parent
-	local layout = consoleFrame.UIListLayout
-	
-	local function updateCanvasSize()
-		consoleFrame.CanvasSize = UDim2.new(0, 0, 0, layout.AbsoluteContentSize.Y)
-	end
-	
-	local function addLog(message, messageType)
-		local logLabel = Instance.new("TextLabel")
-		logLabel.Size = UDim2.new(1, 0, 0, 20)
-		logLabel.BackgroundTransparency = 1
-		logLabel.Font = Enum.Font.Code
-		logLabel.TextSize = 12
-		logLabel.TextXAlignment = Enum.TextXAlignment.Left
-		logLabel.TextWrapped = false
-		logLabel.ClipsDescendants = true
-	
-		if messageType == Enum.MessageType.MessageOutput then
-			logLabel.TextColor3 = Color3.fromRGB(200, 200, 200)
-		elseif messageType == Enum.MessageType.MessageWarning then
-			logLabel.TextColor3 = Color3.fromRGB(255, 200, 0)
-		elseif messageType == Enum.MessageType.MessageError then
-			logLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+	local function updateAvatar()
+		local content, isReady = Players:GetUserThumbnailAsync(localPlayer.UserId, thumbType, thumbSize)
+		if isReady then
+			imageLabel.Image = content
+		else
+			warn("Thumbnail not ready.")
 		end
-	
-		logLabel.Text = message
-		logLabel.Parent = consoleFrame
-	
-		updateCanvasSize()
 	end
 	
-	game:GetService("LogService").MessageOut:Connect(function(message, messageType)
-		addLog(message, messageType)
-	end)
+	updateAvatar()
 	
 end
-coroutine.wrap(RHQMR_script)()
-local function RULPAW_script() -- MainFrame.LocalScript 
+coroutine.wrap(OZNO_script)()
+local function AXDJO_script() -- Name_2.LocalScript 
+	local script = Instance.new('LocalScript', Name_2)
+
+	local parent = script.Parent
+	local user = game.Players.LocalPlayer
+	local name = user.Name
+	
+	parent.Text = name
+end
+coroutine.wrap(AXDJO_script)()
+local function ZHPNL_script() -- UserId_2.LocalScript 
+	local script = Instance.new('LocalScript', UserId_2)
+
+	local parent = script.Parent
+	local user = game.Players.LocalPlayer
+	local uid = user.UserId
+	
+	parent.Text = uid
+end
+coroutine.wrap(ZHPNL_script)()
+local function AELM_script() -- Discord_button_2.LocalScript 
+	local script = Instance.new('LocalScript', Discord_button_2)
+
+	local button = script.Parent
+	
+	button.MouseButton1Click:Connect(function()
+		local url = "https://discord.com/invite/qHYpUczaPD"
+		setclipboard(url)
+	end)
+end
+coroutine.wrap(AELM_script)()
+local function HRBBMGJ_script() -- MainFrame.LocalScript 
 	local script = Instance.new('LocalScript', MainFrame)
 
 	local UIS = game:GetService('UserInputService')
@@ -1053,8 +1326,8 @@ local function RULPAW_script() -- MainFrame.LocalScript
 		end
 	end)
 end
-coroutine.wrap(RULPAW_script)()
-local function UOJGKH_script() -- Rift_open.LocalScript 
+coroutine.wrap(HRBBMGJ_script)()
+local function XATSV_script() -- Rift_open.LocalScript 
 	local script = Instance.new('LocalScript', Rift_open)
 
 	local button = script.Parent
@@ -1066,4 +1339,4 @@ local function UOJGKH_script() -- Rift_open.LocalScript
 		mainframe.Visible = true
 	end)
 end
-coroutine.wrap(UOJGKH_script)()
+coroutine.wrap(XATSV_script)()
