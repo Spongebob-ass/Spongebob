@@ -25,11 +25,12 @@ _getgenv.gethui = newcclosure(function()
     return _folder
 end)
 
-_getgenv.getscripthash = newcclosure(function(instance)
+-- // gay implementation
+_getgenv.getscripthash = function(instance)
     assert(typeof(instance) == "Instance", "invalid argument #1 to 'getscripthash' (Instance expected, got " .. typeof(instance) .. ")", 2)
     assert(instance:IsA("LuaSourceContainer"), "invalid argument #1 to 'getscripthash' (LuaSourceContainer expected, got " .. instance.ClassName .. ")", 2)
     return instance:GetHash()
-end)
+end
 
 _getgenv.getsenv = newcclosure(function(scr)
     for _, v in pairs(_getreg()) do
