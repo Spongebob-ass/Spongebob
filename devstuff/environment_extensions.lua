@@ -4,7 +4,7 @@
 local _getgenv = getgenv();
 local _getrenv = getrenv();
 
-local _cheatname = clonefunction(identifyexecutor());
+local _cheatname = identifyexecutor();
 local _gettenv = clonefunction(gettenv);
 local _getreg = clonefunction(getreg);
 local _setidentity = clonefunction(setidentity);
