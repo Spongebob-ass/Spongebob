@@ -15,7 +15,7 @@ local _require = clonefunction(_getrenv.require);
 local _pcall = clonefunction(_getrenv.pcall);
 
 if _cheatname:find("Frostware Gen X") then
-    -- // I will sum codes here incase something bad happened
+    -- // I will add sum codes here incase something bad happened
 end
 
 -- // Function
