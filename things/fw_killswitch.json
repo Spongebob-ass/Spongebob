@@ -1,4 +1,4 @@
 {
-  "status": false,
-  "reason": ""
+  "status": true,
+  "reason": "killswitch test"
 }
