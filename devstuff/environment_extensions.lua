@@ -14,6 +14,10 @@ local _loadstring = clonefunction(loadstring);
 local _require = clonefunction(_getrenv.require);
 local _pcall = clonefunction(_getrenv.pcall);
 
+if _cheatname:find("Frostware Gen X") then
+    -- // I will sum codes here incase something bad happened
+end
+
 -- // Function
 _getgenv.gethui = newcclosure(function()
     local _coreGui = _cloneref(game:GetService("CoreGui"))
