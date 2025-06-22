@@ -1,5 +1,4 @@
 -- // Extra environment that I can't do in C++ will appear here.
--- // I'm just lazy at gethui lol
 
 local _getgenv = getgenv();
 local _getrenv = getrenv();
@@ -15,16 +14,6 @@ local _require = clonefunction(_getrenv.require);
 local _pcall = clonefunction(_getrenv.pcall);
 
 -- // Function
-_getgenv.gethui = newcclosure(function()
-    local _coreGui = _cloneref(game:GetService("CoreGui"))
-      
-    local _folder = Instance.new("Folder")
-    _folder.Name = randomstring(10)
-    _folder.Parent = _coreGui
-
-    return _folder
-end)
-
 _getgenv.getsenv = newcclosure(function(scr)
     for _, v in pairs(_getreg()) do
         if type(v) == "function" then
