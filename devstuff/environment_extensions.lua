@@ -16,6 +16,8 @@ local _pcall = clonefunction(_getrenv.pcall);
 
 if _cheatname:find("Frostware Gen X") then
     -- // I will add sum codes here incase something bad happened
+elseif _cheatname:find("Hybrid") then
+    -- // Hybrid is so cool
 end
 
 -- // Function
