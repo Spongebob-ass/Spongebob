@@ -124,7 +124,7 @@ local UIStroke_22 = Instance.new("UIStroke")
 local Rift_open = Instance.new("ImageButton")
 
 Rift.Name = "Rift"
-Rift.Parent = cloneref(gethui())
+Rift.Parent = gethui()
 Rift.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Rift.ResetOnSpawn = false
 Rift.IgnoreGuiInset = true
