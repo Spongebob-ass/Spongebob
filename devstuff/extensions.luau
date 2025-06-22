@@ -34,6 +34,12 @@ _getgenv.require = newcclosure(function(script)
     return result
 end)
 
+_getgenv.getscripthash = function(instance)
+    assert(typeof(instance) == "Instance", "invalid argument #1 to 'getscripthash' (Instance expected, got " .. typeof(instance) .. ")", 2)
+    assert(instance:IsA("LuaSourceContainer"), "invalid argument #1 to 'getscripthash' (LuaSourceContainer expected, got " .. instance.ClassName .. ")", 2)
+    return instance:GetHash()
+end
+
 -- // rconsole library
 _getgenv.rconsolename = function()
     return nil
