@@ -10,8 +10,8 @@ local _setidentity = clonefunction(setidentity);
 local _cloneref = clonefunction(cloneref);
 local _loadstring = clonefunction(loadstring);
 
-local _require = clonefunction(_getrenv.require);
-local _pcall = clonefunction(_getrenv.pcall);
+-- // local _require = clonefunction(_getrenv.require);
+-- // local _pcall = clonefunction(_getrenv.pcall);
 
 -- // Function
 _getgenv.getsenv = newcclosure(function(scr)
@@ -25,6 +25,7 @@ _getgenv.getsenv = newcclosure(function(scr)
     end
 end)
 
+--[[
 _getgenv.require = newcclosure(function(script)
     local old_identity = _setidentity(2)
     local success, result = _pcall(_require, script)
@@ -33,6 +34,7 @@ _getgenv.require = newcclosure(function(script)
 
     return result
 end)
+]]--
 
 _getgenv.getscripthash = function(instance)
     assert(typeof(instance) == "Instance", "invalid argument #1 to 'getscripthash' (Instance expected, got " .. typeof(instance) .. ")", 2)
