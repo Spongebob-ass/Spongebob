@@ -20,25 +20,14 @@ elseif _cheatname:find("Hybrid") then
     -- // Hybrid is so cool
 end
 
--- // Function
-_getgenv.gethui = newcclosure(function()
-    local _coreGui = _cloneref(game:GetService("CoreGui"))
-      
-    local _folder = Instance.new("Folder")
-    _folder.Name = randomstring(10)
-    _folder.Parent = _coreGui
-
-    return _folder
-end)
-
--- // gay implementation
+-- // function
 _getgenv.getscripthash = function(instance)
     assert(typeof(instance) == "Instance", "invalid argument #1 to 'getscripthash' (Instance expected, got " .. typeof(instance) .. ")", 2)
     assert(instance:IsA("LuaSourceContainer"), "invalid argument #1 to 'getscripthash' (LuaSourceContainer expected, got " .. instance.ClassName .. ")", 2)
     return instance:GetHash()
 end
 
-_getgenv.getsenv = newcclosure(function(scr)
+_getgenv.getsenv = function(scr)
     for _, v in pairs(_getreg()) do
         if type(v) == "function" then
             local env = getfenv(v)
@@ -47,16 +36,16 @@ _getgenv.getsenv = newcclosure(function(scr)
             end
         end
     end
-end)
+end
 
-_getgenv.require = newcclosure(function(script)
+_getgenv.require = function(script)
     local old_identity = _setidentity(2)
     local success, result = _pcall(_require, script)
     _setidentity(old_identity)
     assert(success, result)
 
     return result
-end)
+end
 
 -- // rconsole library
 _getgenv.rconsolename = function()
