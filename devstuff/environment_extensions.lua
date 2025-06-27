@@ -1,6 +1,4 @@
 -- // Extra environment that I can't do in C++ will appear here.
--- // I'm just lazy at gethui lol
-
 local _getgenv = getgenv();
 local _getrenv = getrenv();
 
