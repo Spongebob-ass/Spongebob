@@ -25,17 +25,6 @@ _getgenv.getscripthash = function(instance)
     return instance:GetHash()
 end
 
-_getgenv.getsenv = function(scr)
-    for _, v in pairs(_getreg()) do
-        if type(v) == "function" then
-            local env = getfenv(v)
-            if env and env.script == scr then
-                return env
-            end
-        end
-    end
-end
-
 _getgenv.require = function(script)
     local old_identity = _setidentity(2)
     local success, result = _pcall(_require, script)
