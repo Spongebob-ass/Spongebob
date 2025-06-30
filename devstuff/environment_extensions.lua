@@ -19,20 +19,11 @@ elseif _cheatname:find("Hybrid") then
 end
 
 -- // function
-_getgenv.getscripthash = function(instance)
+_getgenv.getscripthash = newcclosure(function(instance)
     assert(typeof(instance) == "Instance", "invalid argument #1 to 'getscripthash' (Instance expected, got " .. typeof(instance) .. ")", 2)
     assert(instance:IsA("LuaSourceContainer"), "invalid argument #1 to 'getscripthash' (LuaSourceContainer expected, got " .. instance.ClassName .. ")", 2)
     return instance:GetHash()
-end
-
-_getgenv.require = function(script)
-    local old_identity = _setidentity(2)
-    local success, result = _pcall(_require, script)
-    _setidentity(old_identity)
-    assert(success, result)
-
-    return result
-end
+end)
 
 -- // rconsole library
 _getgenv.rconsolename = function()
