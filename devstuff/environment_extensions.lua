@@ -25,37 +25,5 @@ _getgenv.getscripthash = newcclosure(function(instance)
     return instance:GetHash()
 end)
 
--- // rconsole library
-_getgenv.rconsolename = function()
-    return nil
-end
-
-_getgenv.rconsoleclear = function()
-    return nil
-end
-
-_getgenv.rconsoleinput = function()
-    return nil
-end
-
-_getgenv.rconsoledestroy = function()
-    return nil
-end
-
-_getgenv.rconsolecreate = function()
-    return nil
-end
-
-_getgenv.rconsoleprint = function()
-    return nil
-end
-
 -- // aliases
 _getgenv.dumpstring = _getgenv.getscripthash
-
-consoleprint = _getgenv.rconsoleprint
-consoleclear = _getgenv.rconsoleclear
-consoledestroy = _getgenv.rconsoledestroy 
-consolecreate = _getgenv.rconsolecreate
-consoleinput = _getgenv.rconsoleinput
-consolesettitle = _getgenv.rconsolename
