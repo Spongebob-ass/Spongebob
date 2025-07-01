@@ -19,6 +19,13 @@ elseif _cheatname:find("Hybrid") then
 end
 
 -- // function
+_getgenv.firesignal = newcclosure(function(signal, ...)
+    assert(typeof(signal) == "RBXScriptSignal", string.format("invalid argument #1 to 'firesignal' (RBXScriptSignal expected, got %s)", typeof(signal)))
+    for _, v in ipairs(getconnections(signal)) do
+        task.spawn(v.Function, ...)
+    end
+end)
+
 _getgenv.getscripthash = newcclosure(function(instance)
     assert(typeof(instance) == "Instance", "invalid argument #1 to 'getscripthash' (Instance expected, got " .. typeof(instance) .. ")", 2)
     assert(instance:IsA("LuaSourceContainer"), "invalid argument #1 to 'getscripthash' (LuaSourceContainer expected, got " .. instance.ClassName .. ")", 2)
