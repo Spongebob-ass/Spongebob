@@ -987,9 +987,16 @@ local function XTWZDO_script() -- Execute_button.LocalScript
 	
 	button.MouseButton1Click:Connect(function()
 		local rawCode = textbox.Text:gsub("<[^>]->", "")
-		loadstring(rawCode)()
+		local success, result = pcall(function()
+			return loadstring(rawCode)()
+		end)
+
+		if not success then
+			maketoast("An error occurred:\n" .. tostring(result))
+		else
+			maketoast("Script executed successfully.")
+		end
 	end)
-	
 end
 coroutine.wrap(XTWZDO_script)()
 local function UQUTNU_script() -- Clear_button.LocalScript 
