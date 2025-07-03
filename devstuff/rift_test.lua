@@ -14,7 +14,7 @@ getgenv().client = nil
 _G.RiftLoaded = true
 
 -- [[ Autoexecute ]] --
---// _enableautoexec()
+_enableautoexec()
 
 -- [[ Interface ]] --
 local Rift = Instance.new("ScreenGui")
@@ -124,7 +124,7 @@ local UIStroke_22 = Instance.new("UIStroke")
 local Rift_open = Instance.new("ImageButton")
 
 Rift.Name = "Rift"
-Rift.Parent = gethui()
+Rift.Parent = cloneref(gethui())
 Rift.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Rift.ResetOnSpawn = false
 Rift.IgnoreGuiInset = true
