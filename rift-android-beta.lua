@@ -1,4 +1,5 @@
 -- # yeah fuck this ui, i've made this for a test and probably will be used as the main ui for rift 
+-- # aliases for toast: make_toast, createtoast, create_toast
 
 if _G.RiftLoaded then -- # simple check
   maketoast("The exploit is already running!")
