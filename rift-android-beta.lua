@@ -6,8 +6,8 @@ if _G.RiftLoaded then -- # simple check
 end
 
 -- # custom exploit table ofc
-local autoExec = cloneref(client.enableautoexec) 
-local secureString = cloneref(client.securestring) -- # will be used for webhooks & urls later or sooner
+local autoExec = clonefunction(client.enableautoexec) 
+local secureString = clonefunction(client.securestring) -- # will be used for webhooks & urls later or sooner
 
 setreadonly(client, false)
 client.enableautoexec = nullptr
