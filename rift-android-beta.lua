@@ -59,7 +59,6 @@ Rift.Parent = game:GetService("CoreGui")
 Rift.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Rift.ResetOnSpawn = false
 Rift.IgnoreGuiInset = true
-rconsolewarn("debug 1")
 
 _G.RiftLoaded = true -- # mark our ui as loaded
 
