@@ -1,2 +1,0 @@
-# Spongebob
-Spongebob
