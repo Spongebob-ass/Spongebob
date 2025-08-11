@@ -2,8 +2,8 @@
 -- # aliases for toast: make_toast, createtoast, create_toast
 
 if _G.RiftLoaded then -- # simple check
-  maketoast("The exploit is already running!")
-  return
+	maketoast("The exploit is already running!")
+	return
 end
 
 -- # custom exploit table ofc
@@ -197,7 +197,7 @@ Exit.BackgroundTransparency = 1.000
 Exit.BorderColor3 = Color3.fromRGB(0, 0, 0)
 Exit.BorderSizePixel = 0
 Exit.Position = UDim2.new(0.0235294122, 0, 0.816546738, 0)
-Exit.Size = UDim2.new(0, 35, 0, 39)
+Exit.Size = UDim2.new(0, 38, 0, 39)
 
 UIStroke_5.Parent = Exit
 UIStroke_5.Color = Color3.fromRGB(67, 67, 67)
@@ -211,7 +211,7 @@ ExitButton.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ExitButton.BackgroundTransparency = 1.000
 ExitButton.BorderColor3 = Color3.fromRGB(0, 0, 0)
 ExitButton.BorderSizePixel = 0
-ExitButton.Position = UDim2.new(0.15384616, 0, 0.179487184, 0)
+ExitButton.Position = UDim2.new(0.151590452, 0, 0.179487184, 0)
 ExitButton.Size = UDim2.new(0, 26, 0, 25)
 ExitButton.Image = "rbxassetid://92389396420562"
 
@@ -244,7 +244,7 @@ UIStroke_6.Parent = Toggle
 
 -- Scripts:
 
-local function QNSXKEX_script() -- CheatBox.LocalScript 
+local function WLJM_script() -- CheatBox.LocalScript 
 	local script = Instance.new('LocalScript', CheatBox)
 
 	local syntax = {}
@@ -462,8 +462,8 @@ local function QNSXKEX_script() -- CheatBox.LocalScript
 	textBox.Text = '-- Put your scripts here!'
 	updateHighlighting()
 end
-coroutine.wrap(QNSXKEX_script)()
-local function JLQCBR_script() -- ExecuteButton.LocalScript 
+coroutine.wrap(WLJM_script)()
+local function ORLY_script() -- ExecuteButton.LocalScript 
 	local script = Instance.new('LocalScript', ExecuteButton)
 
 	local btn = script.Parent
@@ -472,7 +472,7 @@ local function JLQCBR_script() -- ExecuteButton.LocalScript
 	btn.MouseButton1Click:Connect(function()
 		local code = textbox.Text:gsub("<[^>]->", "")
 		local success, result = pcall(function()
-			return loadstring(code)() -- # omg i didn't notice this at first
+			return loadstring(code)()
 		end)
 		
 		if not success then
@@ -482,8 +482,8 @@ local function JLQCBR_script() -- ExecuteButton.LocalScript
 		end
 	end)
 end
-coroutine.wrap(JLQCBR_script)()
-local function YORYAG_script() -- ClearButton.LocalScript 
+coroutine.wrap(ORLY_script)()
+local function SWHQGF_script() -- ClearButton.LocalScript 
 	local script = Instance.new('LocalScript', ClearButton)
 
 	local btn = script.Parent
@@ -493,8 +493,8 @@ local function YORYAG_script() -- ClearButton.LocalScript
 		textbox.Text = ""
 	end)
 end
-coroutine.wrap(YORYAG_script)()
-local function NLVOBX_script() -- PasteButton.LocalScript 
+coroutine.wrap(SWHQGF_script)()
+local function GIUJC_script() -- PasteButton.LocalScript 
 	local script = Instance.new('LocalScript', PasteButton)
 
 	local btn = script.Parent
@@ -504,8 +504,8 @@ local function NLVOBX_script() -- PasteButton.LocalScript
 		textbox.Text = getclipboard()
 	end)
 end
-coroutine.wrap(NLVOBX_script)()
-local function ECTHWO_script() -- ExitButton.LocalScript 
+coroutine.wrap(GIUJC_script)()
+local function YLXRKQ_script() -- ExitButton.LocalScript 
 	local script = Instance.new('LocalScript', ExitButton)
 
 	local btn = script.Parent
@@ -517,8 +517,8 @@ local function ECTHWO_script() -- ExitButton.LocalScript
 		image.Visible = true
 	end)
 end
-coroutine.wrap(ECTHWO_script)()
-local function XPPWH_script() -- Toggle.LocalScript 
+coroutine.wrap(YLXRKQ_script)()
+local function JMTG_script() -- Toggle.LocalScript 
 	local script = Instance.new('LocalScript', Toggle)
 
 	local btn = script.Parent
@@ -529,4 +529,4 @@ local function XPPWH_script() -- Toggle.LocalScript
 		frame.Visible = true
 	end)
 end
-coroutine.wrap(XPPWH_script)()
+coroutine.wrap(JMTG_script)()
