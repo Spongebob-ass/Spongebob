@@ -477,6 +477,12 @@ local function ORLY_script() -- ExecuteButton.LocalScript
 	
 	btn.MouseButton1Click:Connect(function()
 		local code = textbox.Text:gsub("<[^>]->", "")
+			
+		if code == "" or code:match("^%s*$") then
+			maketoast("Please enter a script! TextBox cannot be empty.")
+			return
+		end
+			
 		local success, result = pcall(function()
 			return execute(code)
 		end)
