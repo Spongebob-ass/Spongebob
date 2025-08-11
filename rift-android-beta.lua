@@ -472,7 +472,7 @@ local function JLQCBR_script() -- ExecuteButton.LocalScript
 	btn.MouseButton1Click:Connect(function()
 		local code = textbox.Text:gsub("<[^>]->", "")
 		local success, result = pcall(function()
-			return loadstring(textbox.Text)()
+			return loadstring(code)() -- # omg i didn't notice this at first
 		end)
 		
 		if not success then
