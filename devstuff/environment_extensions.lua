@@ -19,6 +19,17 @@ elseif _cheatname:find("Hybrid") then
 end
 
 -- // function
+-- // FUCK I BROKE THIS IN C++
+_getgenv.getloadedmodules = newcclosure(function()
+    local t = {}
+    for _, v in pairs(getinstances()) do
+        if v:IsA("ModuleScript") then
+            table.insert(t, v)
+        end
+    end
+    return t
+end)
+
 _getgenv.getscriptclosure = newcclosure(function(_targetScript)
     for _, _regEntry in pairs(_getreg()) do
         if type(_regEntry) == "table" then
