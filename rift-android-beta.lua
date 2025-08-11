@@ -9,7 +9,6 @@ _G.RiftLoaded = true -- # mark our ui as loaded
 
 -- # custom exploit table ofc
 local autoExec = clonefunction(client.enableautoexec) 
-local luaLoad = clonefunction(client.execute) -- # let's name this luaLoad because why not?
 local secureString = clonefunction(client.securestring) -- # will be used for webhooks & urls later or sooner
 
 setreadonly(client, false)
@@ -17,11 +16,6 @@ client.enableautoexec = nil
 client.execute = nil
 client.securestring = nil
 setreadonly(client, true)
-
--- # is this a good idea?
-local function execute(contents)
-	luaLoad(contents)
-end
 
 -- # clearing our custom table
 getgenv().client = nil
@@ -63,7 +57,7 @@ local UIStroke_6 = Instance.new("UIStroke")
 --Properties:
 
 Rift.Name = "Rift"
-Rift.Parent = game:GetService("CoreGui")
+Rift.Parent = gethui()
 Rift.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Rift.ResetOnSpawn = false
 Rift.IgnoreGuiInset = true
@@ -484,7 +478,7 @@ local function ORLY_script() -- ExecuteButton.LocalScript
 		end
 			
 		local success, result = pcall(function()
-			return execute(code)
+			return loadstring(code)()
 		end)
 		
 		if not success then
