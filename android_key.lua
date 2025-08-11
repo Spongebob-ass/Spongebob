@@ -15,7 +15,7 @@ local KEY_FILE = "RiftKey.lua"
 -- # Utils
 local function loadUI()
     maketoast("Loading Rift UI...")
-    task.wait(1)
+    task.wait(3)
     loadstring(game:HttpGet(UI_URL))()
 end
 
