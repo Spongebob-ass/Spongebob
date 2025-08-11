@@ -5,18 +5,26 @@ if _G.RiftLoaded then -- # simple check
 	maketoast("The exploit is already running!")
 	return
 end
+_G.RiftLoaded = true -- # mark our ui as loaded
 
 -- # custom exploit table ofc
 local autoExec = clonefunction(client.enableautoexec) 
+local luaLoad = clonefunction(client.execute) -- # let's name this luaLoad because why not?
 local secureString = clonefunction(client.securestring) -- # will be used for webhooks & urls later or sooner
 
 setreadonly(client, false)
-client.enableautoexec = nullptr
-client.execute = nullptr
+client.enableautoexec = nil
+client.execute = nil
+client.securestring = nil
 setreadonly(client, true)
 
+-- # is this a good idea?
+local function execute(contents)
+	luaLoad(contents)
+end
+
 -- # clearing our custom table
-getgenv().client = nullptr
+getgenv().client = nil
 
 -- # enabling autoexec
 autoExec()
@@ -59,8 +67,6 @@ Rift.Parent = game:GetService("CoreGui")
 Rift.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 Rift.ResetOnSpawn = false
 Rift.IgnoreGuiInset = true
-
-_G.RiftLoaded = true -- # mark our ui as loaded
 
 Main.Name = "Main"
 Main.Parent = Rift
@@ -472,7 +478,7 @@ local function ORLY_script() -- ExecuteButton.LocalScript
 	btn.MouseButton1Click:Connect(function()
 		local code = textbox.Text:gsub("<[^>]->", "")
 		local success, result = pcall(function()
-			return loadstring(code)()
+			return execute(code)
 		end)
 		
 		if not success then
