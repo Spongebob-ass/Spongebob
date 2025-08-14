@@ -13,6 +13,8 @@ local _require = clonefunction(_getrenv.require);
 local _pcall = clonefunction(_getrenv.pcall);
 
 local _players = cloneref(game:GetService("Players"))
+local _runservice = cloneref(game:GetService("RunService"))
+local _virtualuser = cloneref(game:GetService("VirtualUser"))
 
 if _cheatname:find("Frostware Gen X") then
     -- # I will add sum codes here incase something bad happened
@@ -89,8 +91,51 @@ _getgenv.getrunningscripts = newcclosure(function()
     return t
 end)
 
+_getgenv.fireclickdetector = newcclosure(function(target)
+    assert(typeof(target) == "Instance", "invalid argument #1 to 'fireclickdetector' (Instance expected, got " .. type(target) .. ")", 2)
+
+    local clickDetector = target:FindFirstChild("ClickDetector") or target
+    local previousParent = clickDetector.Parent
+
+    local newPart = Instance.new("Part", workspace)
+    newPart.Transparency = 1
+    newPart.Size = Vector3.new(30, 30, 30)
+    newPart.Anchored = true
+    newPart.CanCollide = false
+
+    task.delay(15, function()
+        if newPart:IsDescendantOf(game) then
+            newPart:Destroy()
+        end
+    end)
+
+    clickDetector.Parent = newPart
+    clickDetector.MaxActivationDistance = math.huge
+
+    local heartbeatConnection
+    heartbeatConnection = _runservice.Heartbeat:Connect(function()
+        local currentCamera = workspace.CurrentCamera or workspace.Camera
+        newPart.CFrame = currentCamera.CFrame
+            * CFrame.new(0, 0, -20)
+            * CFrame.new(
+                currentCamera.CFrame.LookVector.X,
+                currentCamera.CFrame.LookVector.Y,
+                currentCamera.CFrame.LookVector.Z
+            )
+
+        _virtualuser:ClickButton1(Vector2.new(20, 20), currentCamera.CFrame)
+    end)
+
+    clickDetector.MouseClick:Once(function()
+        heartbeatConnection:Disconnect()
+        clickDetector.Parent = previousParent
+        newPart:Destroy()
+    end)
+end)
+
 -- # aliases
 _getgenv.getscripts = _getgenv.getrunningscripts
+_getgenv.fire_click_detector = _getgenv.fireclickdetector
 _getgenv.set_hidden_property = _getgenv.sethiddenproperty
 _getgenv.get_hidden_property = _getgenv.gethiddenproperty
 _getgenv.dumpstring = _getgenv.getscripthash
