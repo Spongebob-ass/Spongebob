@@ -1,6 +1,6 @@
 -- # UI is kinda fucked up, UIStrokes vanished lol
 -- # Config
-local IS_KEYLESS = false
+local IS_KEYLESS = true
 local UI_URL = "https://raw.githubusercontent.com/Spongebob-ass/Spongebob/refs/heads/main/rift-android-beta.lua"
 local KEY_LIB_URL = "https://raw.githubusercontent.com/nathzzi/Rift-Android/refs/heads/main/keyguardian/keyguardianlibrary.lua"
 
