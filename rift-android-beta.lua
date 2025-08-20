@@ -483,6 +483,7 @@ local function ORLY_script() -- ExecuteButton.LocalScript
 		
 		if not success then
 			maketoast("Failed to execute script:\n" .. tostring(result))
+			warn(tostring(result))
 		else
 			maketoast("Script executed successfully!")
 		end
