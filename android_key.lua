@@ -4,6 +4,21 @@ local IS_KEYLESS = true
 local UI_URL = "https://raw.githubusercontent.com/Spongebob-ass/Spongebob/refs/heads/main/rift-android-beta.lua"
 local KEY_LIB_URL = "https://raw.githubusercontent.com/nathzzi/Rift-Android/refs/heads/main/keyguardian/keyguardianlibrary.lua"
 
+-- # Roblox config
+-- # for spoofing purposes lmao
+local ROBLOX_VERSION = version()
+
+local VERSION_MAP = {
+    ["2.687.816"] = {NAME = "Rift", VERSION = "3.4.0"}
+}
+
+local MODULE_INFO = VERSION_MAP[ROBLOX_VERSION]
+if MODULE_INFO then
+    getgenv().identifyexecutor = newcclosure(function()
+        return MODULE_INFO.NAME, MODULE_INFO.VERSION
+    end)
+end
+
 local TRUE_DATA = "5143f840f651404ca653fb30b6813fa4"
 local FALSE_DATA = "b10102ef61c541b3b6600246efa44b72"
 local PUBLIC_TOKEN = "e423a2fdba5842a68919e6f8fb714064"
